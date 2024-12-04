@@ -1,10 +1,4 @@
 <?php
-/**
- * The result of the parser is an array of statements are extensions of the
- * class defined here.
- *
- * A statement represents the result of parsing the lexemes.
- */
 
 declare(strict_types=1);
 
@@ -12,6 +6,7 @@ namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\SqlParser\Components\FunctionCall;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use Stringable;
 
 use function array_flip;
 use function array_keys;
@@ -21,9 +16,14 @@ use function stripos;
 use function trim;
 
 /**
+ * The result of the parser is an array of statements are extensions of the class defined here.
+ *
+ * A statement represents the result of parsing the lexemes.
+ *
  * Abstract statement definition.
  */
-abstract class Statement
+#[\AllowDynamicProperties]
+abstract class Statement implements Stringable
 {
     /**
      * Options for this statement.
@@ -42,7 +42,8 @@ abstract class Statement
      * Two options that can be used together must have different values for
      * indexes, else, when they will be used together, an error will occur.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $OPTIONS = [];
 
@@ -56,11 +57,15 @@ abstract class Statement
      *     - 2 = 10 - add the keyword
      *     - 3 = 11 - add both the keyword and the clause
      *
-     * @var array
+     * @var array<string, array<int, int|string>>
+     * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
     public static $CLAUSES = [];
 
-    /** @var array */
+    /**
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
+     */
     public static $END_OPTIONS = [];
 
     /**
@@ -68,27 +73,27 @@ abstract class Statement
      *
      * @see static::$OPTIONS
      *
-     * @var OptionsArray
+     * @var OptionsArray|null
      */
     public $options;
 
     /**
      * The index of the first token used in this statement.
      *
-     * @var int
+     * @var int|null
      */
     public $first;
 
     /**
      * The index of the last token used in this statement.
      *
-     * @var int
+     * @var int|null
      */
     public $last;
 
     /**
-     * @param Parser     $parser the instance that requests parsing
-     * @param TokensList $list   the list of tokens to be parsed
+     * @param Parser|null     $parser the instance that requests parsing
+     * @param TokensList|null $list   the list of tokens to be parsed
      */
     public function __construct(?Parser $parser = null, ?TokensList $list = null)
     {
@@ -122,15 +127,11 @@ abstract class Statement
          *
          * A clause is considered built just after fields' value
          * (`$this->field`) was used in building.
-         *
-         * @var array
          */
         $built = [];
 
         /**
          * Statement's clauses.
-         *
-         * @var array
          */
         $clauses = $this->getClauses();
 
@@ -202,6 +203,8 @@ abstract class Statement
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      *
+     * @return void
+     *
      * @throws Exceptions\ParserException
      */
     public function parse(Parser $parser, TokensList $list)
@@ -209,8 +212,6 @@ abstract class Statement
         /**
          * Array containing all list of clauses parsed.
          * This is used to check for duplicates.
-         *
-         * @var array
          */
         $parsedClauses = [];
 
@@ -221,16 +222,12 @@ abstract class Statement
          * Whether options were parsed or not.
          * For statements that do not have any options this is set to `true` by
          * default.
-         *
-         * @var bool
          */
         $parsedOptions = empty(static::$OPTIONS);
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
-             *
-             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -310,8 +307,6 @@ abstract class Statement
 
             /**
              * Parser's options.
-             *
-             * @var array
              */
             $options = [];
 
@@ -427,6 +422,8 @@ abstract class Statement
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      * @param Token      $token  the token that is being parsed
+     *
+     * @return void
      */
     public function before(Parser $parser, TokensList $list, Token $token)
     {
@@ -438,6 +435,8 @@ abstract class Statement
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      * @param Token      $token  the token that is being parsed
+     *
+     * @return void
      */
     public function after(Parser $parser, TokensList $list, Token $token)
     {
@@ -446,7 +445,8 @@ abstract class Statement
     /**
      * Gets the clauses of this statement.
      *
-     * @return array
+     * @return array<string, array<int, int|string>>
+     * @psalm-return array<string, array{non-empty-string, (1|2|3)}>
      */
     public function getClauses()
     {

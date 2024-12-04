@@ -1,11 +1,4 @@
 <?php
-/**
- * Defines the lexer of the library.
- *
- * This is one of the most important components, along with the parser.
- *
- * Depends on context to extract lexemes.
- */
 
 declare(strict_types=1);
 
@@ -18,6 +11,7 @@ use function defined;
 use function in_array;
 use function mb_strlen;
 use function sprintf;
+use function str_ends_with;
 use function strlen;
 use function substr;
 
@@ -37,19 +31,24 @@ if (! defined('USE_UTF_STRINGS')) {
 }
 
 /**
- * Performs lexical analysis over a SQL statement and splits it in multiple
- * tokens.
+ * Defines the lexer of the library.
+ *
+ * This is one of the most important components, along with the parser.
+ *
+ * Depends on context to extract lexemes.
+ *
+ * Performs lexical analysis over a SQL statement and splits it in multiple tokens.
  *
  * The output of the lexer is affected by the context of the SQL statement.
  *
- * @see      Context
+ * @see Context
  */
 class Lexer extends Core
 {
     /**
      * A list of methods that are used in lexing the SQL query.
      *
-     * @var array
+     * @var string[]
      */
     public static $PARSER_METHODS = [
         // It is best to put the parsers in order of their complexity
@@ -86,6 +85,30 @@ class Lexer extends Core
         'parseKeyword',
         'parseLabel',
         'parseUnknown',
+    ];
+
+
+    /**
+     * A list of keywords that indicate that the function keyword
+     * is not used as a function
+     *
+     * @var string[]
+     */
+    public $KEYWORD_NAME_INDICATORS = [
+        'FROM',
+        'SET',
+        'WHERE',
+    ];
+
+    /**
+     * A list of operators that indicate that the function keyword
+     * is not used as a function
+     *
+     * @var string[]
+     */
+    public $OPERATOR_NAME_INDICATORS = [
+        ',',
+        '.',
     ];
 
     /**
@@ -195,6 +218,8 @@ class Lexer extends Core
      * Sets the delimiter.
      *
      * @param string $delimiter the new delimiter
+     *
+     * @return void
      */
     public function setDelimiter($delimiter)
     {
@@ -204,6 +229,8 @@ class Lexer extends Core
 
     /**
      * Parses the string and extracts lexemes.
+     *
+     * @return void
      */
     public function lex()
     {
@@ -341,6 +368,7 @@ class Lexer extends Core
         $this->list = $list;
 
         $this->solveAmbiguityOnStarOperator();
+        $this->solveAmbiguityOnFunctionKeywords();
     }
 
     /**
@@ -355,10 +383,8 @@ class Lexer extends Core
      * - ")" (a closing parenthesis like in "COUNT(*)").
      * This methods will change the flag of the "*" tokens when any of those condition above is true. Otherwise, the
      * default flag (arithmetic) will be kept.
-     *
-     * @return void
      */
-    private function solveAmbiguityOnStarOperator()
+    private function solveAmbiguityOnStarOperator(): void
     {
         $iBak = $this->list->idx;
         while (($starToken = $this->list->getNextOfTypeAndValue(Token::TYPE_OPERATOR, '*')) !== null) {
@@ -383,12 +409,59 @@ class Lexer extends Core
     }
 
     /**
+     * Resolves the ambiguity when dealing with the functions keywords.
+     *
+     * In SQL statements, the function keywords might be used as table names or columns names.
+     * To solve this ambiguity, the solution is to find the next token, excluding whitespaces and
+     * comments, right after the function keyword position. The function keyword is for sure used
+     * as column name or table name if the next token found is any of:
+     *
+     * - "FROM" (the FROM keyword like in "SELECT Country x, AverageSalary avg FROM...");
+     * - "WHERE" (the WHERE keyword like in "DELETE FROM emp x WHERE x.salary = 20");
+     * - "SET" (the SET keyword like in "UPDATE Country x, City y set x.Name=x.Name");
+     * - "," (a comma separator like 'x,' in "UPDATE Country x, City y set x.Name=x.Name");
+     * - "." (a dot separator like in "x.asset_id FROM (SELECT evt.asset_id FROM evt)".
+     * - "NULL" (when used as a table alias like in "avg.col FROM (SELECT ev.col FROM ev) avg").
+     *
+     * This method will change the flag of the function keyword tokens when any of those
+     * condition above is true. Otherwise, the
+     * default flag (function keyword) will be kept.
+     */
+    private function solveAmbiguityOnFunctionKeywords(): void
+    {
+        $iBak = $this->list->idx;
+        $keywordFunction = Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_FUNCTION;
+        while (($keywordToken = $this->list->getNextOfTypeAndFlag(Token::TYPE_KEYWORD, $keywordFunction)) !== null) {
+            $next = $this->list->getNext();
+            if (
+                ($next->type !== Token::TYPE_KEYWORD
+                    || ! in_array($next->value, $this->KEYWORD_NAME_INDICATORS, true)
+                )
+                && ($next->type !== Token::TYPE_OPERATOR
+                    || ! in_array($next->value, $this->OPERATOR_NAME_INDICATORS, true)
+                )
+                && ($next->value !== null)
+            ) {
+                continue;
+            }
+
+            $keywordToken->type = Token::TYPE_NONE;
+            $keywordToken->flags = Token::TYPE_NONE;
+            $keywordToken->keyword = $keywordToken->value;
+        }
+
+        $this->list->idx = $iBak;
+    }
+
+    /**
      * Creates a new error log.
      *
      * @param string $msg  the error message
      * @param string $str  the character that produced the error
      * @param int    $pos  the position of the character
      * @param int    $code the code of the error
+     *
+     * @return void
      *
      * @throws LexerException throws the exception, if strict mode is enabled.
      */
@@ -421,8 +494,6 @@ class Lexer extends Core
 
         /**
          * The value of `$this->last` where `$token` ends in `$this->str`.
-         *
-         * @var int
          */
         $iEnd = $this->last;
 
@@ -485,8 +556,6 @@ class Lexer extends Core
 
         /**
          * The value of `$this->last` where `$token` ends in `$this->str`.
-         *
-         * @var int
          */
         $iEnd = $this->last;
         for ($j = 1; $j < Context::LABEL_MAX_LENGTH && $this->last < $this->len; ++$j, ++$this->last) {
@@ -533,8 +602,6 @@ class Lexer extends Core
 
         /**
          * The value of `$this->last` where `$token` ends in `$this->str`.
-         *
-         * @var int
          */
         $iEnd = $this->last;
 
@@ -1014,7 +1081,7 @@ class Lexer extends Core
             $token .= $this->str[$this->last];
 
             // Test if end of token equals the current delimiter. If so, remove it from the token.
-            if (substr($token, -$this->delimiterLen) === $this->delimiter) {
+            if (str_ends_with($token, $this->delimiter)) {
                 $token = substr($token, 0, -$this->delimiterLen);
                 $this->last -= $this->delimiterLen - 1;
                 break;

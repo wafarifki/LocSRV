@@ -1,7 +1,4 @@
 <?php
-/**
- * `ALTER` statement.
- */
 
 declare(strict_types=1);
 
@@ -25,21 +22,22 @@ class AlterStatement extends Statement
     /**
      * Table affected.
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $table;
 
     /**
      * Column affected by this statement.
      *
-     * @var AlterOperation[]
+     * @var AlterOperation[]|null
      */
     public $altered = [];
 
     /**
      * Options of this statement.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $OPTIONS = [
         'ONLINE' => 1,
@@ -94,8 +92,6 @@ class AlterStatement extends Statement
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
-             *
-             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -119,6 +115,8 @@ class AlterStatement extends Statement
                     $options = AlterOperation::$VIEW_OPTIONS;
                 } elseif ($this->options->has('USER')) {
                     $options = AlterOperation::$USER_OPTIONS;
+                } elseif ($this->options->has('EVENT')) {
+                    $options = AlterOperation::$EVENT_OPTIONS;
                 }
 
                 $this->altered[] = AlterOperation::parse($parser, $list, $options);

@@ -546,8 +546,8 @@ class ContainerBuilder extends Container implements TaggedContainerInterface
      */
     public function get(string $id, int $invalidBehavior = ContainerInterface::EXCEPTION_ON_INVALID_REFERENCE)
     {
-        if ($this->isCompiled() && isset($this->removedIds[$id]) && ContainerInterface::EXCEPTION_ON_INVALID_REFERENCE >= $invalidBehavior) {
-            return parent::get($id);
+        if ($this->isCompiled() && isset($this->removedIds[$id])) {
+            return ContainerInterface::EXCEPTION_ON_INVALID_REFERENCE >= $invalidBehavior ? parent::get($id) : null;
         }
 
         return $this->doGet($id, $invalidBehavior);
@@ -564,9 +564,9 @@ class ContainerBuilder extends Container implements TaggedContainerInterface
         }
         try {
             if (ContainerInterface::IGNORE_ON_UNINITIALIZED_REFERENCE === $invalidBehavior) {
-                return parent::get($id, $invalidBehavior);
+                return $this->privates[$id] ?? parent::get($id, $invalidBehavior);
             }
-            if ($service = parent::get($id, ContainerInterface::NULL_ON_INVALID_REFERENCE)) {
+            if (null !== $service = $this->privates[$id] ?? parent::get($id, ContainerInterface::NULL_ON_INVALID_REFERENCE)) {
                 return $service;
             }
         } catch (ServiceCircularReferenceException $e) {
@@ -1085,8 +1085,12 @@ class ContainerBuilder extends Container implements TaggedContainerInterface
             }
         }
 
-        if (null !== $id && $definition->isShared() && isset($this->services[$id]) && ($tryProxy || !$definition->isLazy())) {
-            return $this->services[$id];
+        if (null !== $id && $definition->isShared() && (isset($this->services[$id]) || isset($this->privates[$id])) && ($tryProxy || !$definition->isLazy())) {
+            return $this->services[$id] ?? $this->privates[$id];
+        }
+
+        if (!array_is_list($arguments)) {
+            $arguments = array_combine(array_map(function ($k) { return preg_replace('/^.*\\$/', '', $k); }, array_keys($arguments)), $arguments);
         }
 
         if (null !== $factory) {
@@ -1102,7 +1106,7 @@ class ContainerBuilder extends Container implements TaggedContainerInterface
         } else {
             $r = new \ReflectionClass($parameterBag->resolveValue($definition->getClass()));
 
-            $service = null === $r->getConstructor() ? $r->newInstance() : $r->newInstanceArgs(array_values($arguments));
+            $service = null === $r->getConstructor() ? $r->newInstance() : $r->newInstanceArgs($arguments);
 
             if (!$definition->isDeprecated() && 0 < strpos($r->getDocComment(), "\n * @deprecated ")) {
                 trigger_deprecation('', '', 'The "%s" service relies on the deprecated "%s" class. It should either be deprecated or its implementation upgraded.', $id, $r->name);
@@ -1665,7 +1669,11 @@ class ContainerBuilder extends Container implements TaggedContainerInterface
         $inlineServices[$id ?? spl_object_hash($definition)] = $service;
 
         if (null !== $id && $definition->isShared()) {
-            $this->services[$id] = $service;
+            if ($definition->isPrivate() && $this->isCompiled()) {
+                $this->privates[$id] = $service;
+            } else {
+                $this->services[$id] = $service;
+            }
             unset($this->loading[$id]);
         }
     }

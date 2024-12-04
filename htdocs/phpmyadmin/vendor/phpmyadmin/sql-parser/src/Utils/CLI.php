@@ -1,7 +1,4 @@
 <?php
-/**
- * CLI interface.
- */
 
 declare(strict_types=1);
 
@@ -55,8 +52,8 @@ class CLI
     }
 
     /**
-     * @param string $opt
-     * @param array  $long
+     * @param string   $opt
+     * @param string[] $long
      *
      * @return string[]|false[]|false
      */
@@ -120,7 +117,7 @@ class CLI
         }
 
         if (isset($params['a'])) {
-            Context::setMode('ANSI_QUOTES');
+            Context::setMode(Context::SQL_MODE_ANSI_QUOTES);
         }
 
         if (isset($params['q'])) {
@@ -194,7 +191,7 @@ class CLI
         }
 
         if (isset($params['a'])) {
-            Context::setMode('ANSI_QUOTES');
+            Context::setMode(Context::SQL_MODE_ANSI_QUOTES);
         }
 
         if (isset($params['q'])) {
@@ -268,7 +265,7 @@ class CLI
         }
 
         if (isset($params['a'])) {
-            Context::setMode('ANSI_QUOTES');
+            Context::setMode(Context::SQL_MODE_ANSI_QUOTES);
         }
 
         if (isset($params['q'])) {

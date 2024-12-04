@@ -1,7 +1,4 @@
 <?php
-/**
- * Parses a function call.
- */
 
 declare(strict_types=1);
 
@@ -24,20 +21,20 @@ class FunctionCall extends Component
     /**
      * The name of this function.
      *
-     * @var string
+     * @var string|null
      */
     public $name;
 
     /**
      * The list of parameters.
      *
-     * @var ArrayObj
+     * @var ArrayObj|null
      */
     public $parameters;
 
     /**
-     * @param string         $name       the name of the function to be called
-     * @param array|ArrayObj $parameters the parameters of this function
+     * @param string|null            $name       the name of the function to be called
+     * @param string[]|ArrayObj|null $parameters the parameters of this function
      */
     public function __construct($name = null, $parameters = null)
     {
@@ -50,9 +47,9 @@ class FunctionCall extends Component
     }
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return FunctionCall
      */
@@ -76,8 +73,6 @@ class FunctionCall extends Component
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
-             *
-             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -107,8 +102,8 @@ class FunctionCall extends Component
     }
 
     /**
-     * @param FunctionCall $component the component to be built
-     * @param array        $options   parameters for building
+     * @param FunctionCall         $component the component to be built
+     * @param array<string, mixed> $options   parameters for building
      *
      * @return string
      */

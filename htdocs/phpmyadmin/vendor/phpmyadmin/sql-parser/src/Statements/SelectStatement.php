@@ -1,7 +1,4 @@
 <?php
-/**
- * `SELECT` statement.
- */
 
 declare(strict_types=1);
 
@@ -53,7 +50,8 @@ class SelectStatement extends Statement
     /**
      * Options for `SELECT` statements and their slot ID.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $OPTIONS = [
         'ALL' => 1,
@@ -73,7 +71,10 @@ class SelectStatement extends Statement
         'SQL_CALC_FOUND_ROWS' => 9,
     ];
 
-    /** @var array<string,int> */
+    /**
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
+     */
     public static $END_OPTIONS = [
         'FOR UPDATE' => 1,
         'LOCK IN SHARE MODE' => 1,
@@ -84,7 +85,8 @@ class SelectStatement extends Statement
      *
      * @see Statement::$CLAUSES
      *
-     * @var array
+     * @var array<string, array<int, int|string>>
+     * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
     public static $CLAUSES = [
         'SELECT' => [
@@ -237,70 +239,70 @@ class SelectStatement extends Statement
     /**
      * Index hints
      *
-     * @var IndexHint[]
+     * @var IndexHint[]|null
      */
     public $index_hints;
 
     /**
      * Partitions used as source for this statement.
      *
-     * @var ArrayObj
+     * @var ArrayObj|null
      */
     public $partition;
 
     /**
      * Conditions used for filtering each row of the result set.
      *
-     * @var Condition[]
+     * @var Condition[]|null
      */
     public $where;
 
     /**
      * Conditions used for grouping the result set.
      *
-     * @var GroupKeyword[]
+     * @var GroupKeyword[]|null
      */
     public $group;
 
     /**
      * Conditions used for filtering the result set.
      *
-     * @var Condition[]
+     * @var Condition[]|null
      */
     public $having;
 
     /**
      * Specifies the order of the rows in the result set.
      *
-     * @var OrderKeyword[]
+     * @var OrderKeyword[]|null
      */
     public $order;
 
     /**
      * Conditions used for limiting the size of the result set.
      *
-     * @var Limit
+     * @var Limit|null
      */
     public $limit;
 
     /**
      * Procedure that should process the data in the result set.
      *
-     * @var FunctionCall
+     * @var FunctionCall|null
      */
     public $procedure;
 
     /**
      * Destination of this result set.
      *
-     * @var IntoKeyword
+     * @var IntoKeyword|null
      */
     public $into;
 
     /**
      * Joins.
      *
-     * @var JoinKeyword[]
+     * @var JoinKeyword[]|null
      */
     public $join;
 
@@ -316,14 +318,15 @@ class SelectStatement extends Statement
      *
      * @see static::$END_OPTIONS
      *
-     * @var OptionsArray
+     * @var OptionsArray|null
      */
     public $end_options;
 
     /**
      * Gets the clauses of this statement.
      *
-     * @return array
+     * @return array<string, array<int, int|string>>
+     * @psalm-return array<string, array{non-empty-string, (1|2|3)}>
      */
     public function getClauses()
     {

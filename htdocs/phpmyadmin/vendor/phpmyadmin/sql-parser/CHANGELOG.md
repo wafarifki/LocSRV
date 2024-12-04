@@ -1,5 +1,33 @@
 # Change Log
 
+## [5.7.0] - 2023-01-25
+
+* Performance improvement to use less the `nextToken()` function (#397)
+* Lexer - Solving ambiguity on function keywords (#385)
+* Implement `ALTER EVENT` (#404)
+* Add `ALTER EVENT` keywords (#404)
+* Drop PHP 7.1 support
+* Fix the alter operation table options `RENAME INDEX x TO y` (#405)
+* Fix `CreateStatement` function's options (#406)
+* Fix a PHP notice on Linter using `ANALYZE` (#413)
+
+## [5.6.0] - 2023-01-02
+
+* Add missing return types annotations
+* Improve the WITH statements parser (#363)
+* Add support for passing `Context::SQL_MODE*` constants to `Context::setMode` method
+* Fix additional body tokens issue with `CREATE VIEW` statements (#371)
+* Exclude from composer vendor bundle /tests and /phpunit.xml.dist
+* Support table structure with `COMPRESSED` columns (#351)
+* Add `#[\AllowDynamicProperties]` on `Statement` and `Expression` classes for PHP 8.2 support
+* Support `ALTER` queries of `PARTITIONS` (#329)
+* Fixed differentiating between `ANALYZE` and `EXPLAIN` statements (#386)
+* Added "NOT" to the select options (#374)
+* Implement the `EXPLAIN` Parser (#389)
+* Context: Updated contexts to contain `multipoint` and `multipolygon` data types (#393)
+* Support more keywords on `Expression` component (#399)
+* Fix PHP 8.3 failing tests (#400)
+
 ## [5.5.0] - 2021-12-08
 
 * Add WITH support (#165, #331)
@@ -80,6 +108,8 @@
 * Fix for PHP warnings with an incomplete CASE expression (#241)
 * Fix for error message with multiple CALL statements (#223)
 * Recognize the question mark character as a parameter (#242)
+
+## [4.7.4] - YYYY-MM-DD
 
 ## [4.7.3] - 2021-12-08
 

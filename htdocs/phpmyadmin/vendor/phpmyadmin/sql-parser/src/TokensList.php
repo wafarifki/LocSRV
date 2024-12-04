@@ -1,7 +1,4 @@
 <?php
-/**
- * Defines an array of tokens and utility functions to iterate through it.
- */
 
 declare(strict_types=1);
 
@@ -14,14 +11,18 @@ use function is_array;
 use function is_string;
 
 /**
+ * Defines an array of tokens and utility functions to iterate through it.
+ *
  * A structure representing a list of tokens.
+ *
+ * @implements ArrayAccess<int, Token>
  */
 class TokensList implements ArrayAccess
 {
     /**
      * The array of tokens.
      *
-     * @var array
+     * @var Token[]
      */
     public $tokens = [];
 
@@ -40,8 +41,8 @@ class TokensList implements ArrayAccess
     public $idx = 0;
 
     /**
-     * @param array $tokens the initial array of tokens
-     * @param int   $count  the count of tokens in the initial array
+     * @param Token[] $tokens the initial array of tokens
+     * @param int     $count  the count of tokens in the initial array
      */
     public function __construct(array $tokens = [], $count = -1)
     {
@@ -84,6 +85,8 @@ class TokensList implements ArrayAccess
      * Adds a new token.
      *
      * @param Token $token token to be added in list
+     *
+     * @return void
      */
     public function add(Token $token)
     {
@@ -104,6 +107,24 @@ class TokensList implements ArrayAccess
                 && ($this->tokens[$this->idx]->type !== Token::TYPE_COMMENT)
             ) {
                 return $this->tokens[$this->idx++];
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Gets the previous token. Skips any irrelevant token (whitespaces and
+     * comments).
+     */
+    public function getPrevious(): ?Token
+    {
+        for (; $this->idx > 0; --$this->idx) {
+            if (
+                ($this->tokens[$this->idx]->type !== Token::TYPE_WHITESPACE)
+                && ($this->tokens[$this->idx]->type !== Token::TYPE_COMMENT)
+            ) {
+                return $this->tokens[$this->idx--];
             }
         }
 
@@ -148,10 +169,29 @@ class TokensList implements ArrayAccess
     }
 
     /**
+     * Gets the next token.
+     *
+     * @param int $type the type of the token
+     * @param int $flag the flag of the token
+     */
+    public function getNextOfTypeAndFlag(int $type, int $flag): ?Token
+    {
+        for (; $this->idx < $this->count; ++$this->idx) {
+            if (($this->tokens[$this->idx]->type === $type) && ($this->tokens[$this->idx]->flags === $flag)) {
+                return $this->tokens[$this->idx++];
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Sets an value inside the container.
      *
-     * @param int   $offset the offset to be set
-     * @param Token $value  the token to be saved
+     * @param int|null $offset the offset to be set
+     * @param Token    $value  the token to be saved
+     *
+     * @return void
      */
     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
@@ -168,7 +208,7 @@ class TokensList implements ArrayAccess
      *
      * @param int $offset the offset to be returned
      *
-     * @return Token
+     * @return Token|null
      */
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
@@ -193,6 +233,8 @@ class TokensList implements ArrayAccess
      * Unsets the value of an offset.
      *
      * @param int $offset the offset to be unset
+     *
+     * @return void
      */
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)

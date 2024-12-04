@@ -4,25 +4,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _control = require("ol/control.js");
-
 var _coordinate = require("ol/coordinate.js");
-
 var _extent = require("ol/extent.js");
-
 var _geom = require("ol/geom.js");
-
 var _layer = require("ol/layer.js");
-
 var _proj = require("ol/proj.js");
-
 var _source = require("ol/source.js");
-
 var _style = require("ol/style.js");
-
 var _ol = require("ol");
-
 const ol = {
   control: {
     Attribution: _control.Attribution,

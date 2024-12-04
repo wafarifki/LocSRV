@@ -51,7 +51,7 @@ class SlimData extends stdClass implements JsonSerializable
         'set' => 6,
         'directory name' => 7,
         'file name' => 8,
-        'byte' => 9
+        'byte' => 9,
     ];
 
     /**

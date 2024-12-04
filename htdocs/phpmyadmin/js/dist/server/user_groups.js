@@ -11,10 +11,10 @@
 AJAX.registerTeardown('server/user_groups.js', function () {
   $('#deleteUserGroupModal').off('show.bs.modal');
 });
+
 /**
  * Bind event handlers
  */
-
 AJAX.registerOnload('server/user_groups.js', function () {
   const deleteUserGroupModal = $('#deleteUserGroupModal');
   deleteUserGroupModal.on('show.bs.modal', function (event) {

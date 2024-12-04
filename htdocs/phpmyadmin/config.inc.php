@@ -33,6 +33,7 @@ $cfg['Servers'][$i]['password'] = '';
 $cfg['Servers'][$i]['host'] = 'localhost';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
+$cfg['Servers'][$i]['port'] = 3306;
 $cfg['Servers'][$i]['DisableIS'] = true;
 
 $cfg['DefaultCharset'] = 'utf8mb4';
