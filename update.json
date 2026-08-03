@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "notes": "Initial release of LocSRV.",
+  "pub_date": "2026-08-04T00:00:00Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "",
+      "url": "https://github.com/wafarifki/LocSRV-source/releases/download/v0.1.0/LocSRV-0.1.0-x64-setup.nsis.zip"
+    }
+  }
+}
