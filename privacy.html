@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta
+    name="description"
+    content="Privacy Policy for the LocSRV Windows desktop application."
+  >
+  <title>LocSRV Privacy Policy</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: #080b10;
+      color: #e8edf5;
+      line-height: 1.65;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(38, 132, 255, 0.13), transparent 32rem),
+        #080b10;
+    }
+
+    a {
+      color: #75b7ff;
+    }
+
+    a:hover {
+      color: #a8d3ff;
+    }
+
+    header,
+    main,
+    footer {
+      width: min(860px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    header {
+      padding: 72px 0 30px;
+    }
+
+    main {
+      padding-bottom: 48px;
+    }
+
+    footer {
+      padding: 24px 0 48px;
+      border-top: 1px solid #27303d;
+      color: #98a4b5;
+      font-size: 0.9rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #75b7ff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 20px 0 0;
+      color: #aeb9c8;
+      font-size: 1.05rem;
+    }
+
+    .metadata {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      margin-top: 24px;
+      color: #98a4b5;
+      font-size: 0.9rem;
+    }
+
+    section {
+      margin-top: 18px;
+      padding: 26px;
+      border: 1px solid #27303d;
+      border-radius: 16px;
+      background: rgba(17, 22, 30, 0.88);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.25rem;
+      letter-spacing: -0.015em;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 1rem;
+    }
+
+    p,
+    ul {
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .summary {
+      border-color: rgba(67, 153, 255, 0.4);
+      background: rgba(24, 83, 151, 0.14);
+    }
+
+    .notice {
+      padding: 14px 16px;
+      border-left: 3px solid #75b7ff;
+      border-radius: 6px;
+      background: #0d131c;
+      color: #cbd5e2;
+    }
+
+    code {
+      padding: 2px 6px;
+      border-radius: 5px;
+      background: #080b10;
+      color: #d9e8fb;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding-top: 44px;
+      }
+
+      section {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <p class="eyebrow">LocSRV for Windows</p>
+    <h1>Privacy Policy</h1>
+
+    <p class="intro">
+      This Privacy Policy explains how the LocSRV Windows desktop application
+      handles information when you install and use it.
+    </p>
+
+    <div class="metadata">
+      <span><strong>Publisher:</strong> Wafa Rifqi</span>
+      <span><strong>Effective date:</strong> August 11, 2026</span>
+      <span><strong>Application:</strong> LocSRV</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="summary">
+      <h2>Privacy summary</h2>
+
+      <p>
+        LocSRV does not require a LocSRV account and does not include advertising
+        or publisher-operated analytics or telemetry.
+      </p>
+
+      <p>
+        Project files, configuration, credentials, logs, local certificates,
+        database content, and terminal activity are not transmitted to the
+        LocSRV publisher or to a server controlled by the publisher.
+      </p>
+
+      <p>
+        Network communication occurs when requested by the user or when required
+        by an enabled feature, such as downloading development packages,
+        connecting through SSH, checking for updates, or starting a Cloudflare
+        Tunnel.
+      </p>
+    </section>
+
+    <section>
+      <h2>1. Scope</h2>
+
+      <p>
+        This policy applies to the LocSRV Windows desktop application and its
+        official website and support pages.
+      </p>
+
+      <p>
+        Software packages and services that you choose to install or connect to
+        have their own privacy policies and terms.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Information LocSRV processes locally</h2>
+
+      <p>
+        LocSRV processes and stores information on your device so that it can
+        manage your local development environment. Depending on the features you
+        use, this may include:
+      </p>
+
+      <ul>
+        <li>
+          Application preferences, including language, theme, workspace paths,
+          terminal and editor preferences, startup preferences, domain patterns,
+          update preferences, and log-retention settings.
+        </li>
+        <li>
+          Project names, local filesystem paths, local development domains,
+          web-server configuration, runtime selections, port assignments, and
+          development profile settings.
+        </li>
+        <li>
+          Development-profile environment variables and their values. These
+          values remain in locally stored profile files.
+        </li>
+        <li>
+          Package metadata, download progress, integrity hashes, installed
+          runtime records, and configuration files for local development tools.
+        </li>
+        <li>
+          Local service output, application logs, sanitized diagnostic reports,
+          database backups, and other files created through features you use.
+        </li>
+        <li>
+          SSH profile names, server hostnames or IP addresses, ports, usernames,
+          authentication method, and an optional local private-key path.
+        </li>
+        <li>
+          Local database usernames and credentials needed to administer databases
+          you create through LocSRV.
+        </li>
+        <li>
+          Cloudflare Tunnel credentials when you explicitly save a tunnel token.
+        </li>
+        <li>
+          Locally generated certificate-authority files, project certificates,
+          and private keys used for local HTTPS development.
+        </li>
+      </ul>
+
+      <h3>Credentials and private keys</h3>
+
+      <ul>
+        <li>
+          Database passwords and Cloudflare Tunnel tokens are stored using
+          Windows Credential Manager.
+        </li>
+        <li>
+          SSH passwords are entered interactively through Windows OpenSSH and
+          are not saved by LocSRV.
+        </li>
+        <li>
+          LocSRV stores only the selected SSH private-key path. It does not copy
+          or upload the private-key contents.
+        </li>
+        <li>
+          Locally generated certificate private keys remain on the device and
+          are not transmitted to the publisher.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Information LocSRV does not collect</h2>
+
+      <p>LocSRV does not intentionally send the following to the publisher:</p>
+
+      <ul>
+        <li>Your project source code or website content.</li>
+        <li>Your database contents or database backups.</li>
+        <li>Your terminal commands or SSH session contents.</li>
+        <li>Your passwords, access tokens, or private keys.</li>
+        <li>Your local certificates or certificate private keys.</li>
+        <li>Your contact list, photos, camera, microphone, or precise location.</li>
+        <li>Advertising identifiers or cross-application tracking data.</li>
+      </ul>
+
+      <p>
+        LocSRV does not sell personal information and does not share information
+        with advertising networks or data brokers.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Network communication and third parties</h2>
+
+      <p>
+        Some LocSRV features communicate with third-party systems. These
+        connections are made to provide a feature requested or enabled by you.
+      </p>
+
+      <h3>Package downloads</h3>
+
+      <p>
+        When you choose to install a package, LocSRV downloads it over HTTPS from
+        its listed publisher or distribution host. The receiving host may process
+        ordinary network information such as your IP address, request time, and
+        protocol headers. LocSRV verifies downloaded packages against the
+        configured SHA-256 checksum before installation.
+      </p>
+
+      <h3>Updates</h3>
+
+      <p>
+        If signed updates are configured and automatic update checks are enabled,
+        LocSRV may contact the configured HTTPS update service to obtain release
+        metadata and update files. You can disable automatic update checks in the
+        application settings.
+      </p>
+
+      <h3>Cloudflare Tunnel</h3>
+
+      <p>
+        If you explicitly start a public tunnel, LocSRV launches
+        <code>cloudflared</code> and sends traffic through Cloudflare. Website
+        requests made through the public tunnel are processed by Cloudflare and
+        forwarded to the local service you selected.
+      </p>
+
+      <p>
+        Cloudflare's handling of this traffic is governed by its
+        <a href="https://www.cloudflare.com/privacypolicy/">Privacy Policy</a>.
+      </p>
+
+      <h3>SSH connections</h3>
+
+      <p>
+        When you start an SSH session, Windows OpenSSH connects directly to the
+        server address you configured. The destination server and its operator
+        may process authentication data, commands, and session traffic according
+        to their own policies.
+      </p>
+
+      <h3>Microsoft services</h3>
+
+      <p>
+        Microsoft may process information when you obtain LocSRV through the
+        Microsoft Store, when Windows checks or installs application updates, or
+        when the installer obtains the Microsoft Edge WebView2 Runtime.
+      </p>
+
+      <p>
+        Microsoft may provide the publisher with Store reports such as aggregated
+        acquisition, usage, health, ratings, reviews, and application diagnostic
+        information. This processing is controlled by Microsoft and applicable
+        Windows privacy settings. See the
+        <a href="https://privacy.microsoft.com/privacystatement">
+          Microsoft Privacy Statement
+        </a>.
+      </p>
+
+      <h3>GitHub</h3>
+
+      <p>
+        The LocSRV website and support repository are hosted by GitHub. GitHub
+        may process normal website request information when you visit these
+        pages. See the
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">
+          GitHub General Privacy Statement
+        </a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Device access and system changes</h2>
+
+      <p>
+        LocSRV needs access to local files and processes to perform its purpose as
+        a development-environment manager. Depending on your actions, it may:
+      </p>
+
+      <ul>
+        <li>Create, read, update, and delete files within LocSRV directories.</li>
+        <li>Read or update project directories selected by you.</li>
+        <li>Start and stop local development processes.</li>
+        <li>Download and install development runtimes selected by you.</li>
+        <li>
+          Modify the Windows hosts file after confirmation and a Windows
+          elevation prompt.
+        </li>
+        <li>
+          Create and trust a local development certificate authority after your
+          confirmation.
+        </li>
+        <li>
+          Add or remove a current-user Windows startup entry when you change the
+          corresponding setting.
+        </li>
+        <li>
+          Expose a selected local service publicly only after explicit tunnel
+          confirmation.
+        </li>
+      </ul>
+
+      <p>
+        LocSRV does not install non-Microsoft device drivers. Development servers
+        are run as user-mode processes rather than installed as Windows NT
+        services.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Logs and diagnostics</h2>
+
+      <p>
+        Application and service logs are stored locally. LocSRV applies
+        sanitization intended to redact common password, token, secret, and
+        authorization fields from displayed or exported diagnostic information.
+      </p>
+
+      <p>
+        Diagnostic reports and log exports are not automatically uploaded.
+        They leave your device only if you manually share them.
+      </p>
+
+      <div class="notice">
+        Review diagnostic files before sharing them. Project paths, hostnames,
+        configuration details, and output generated by third-party tools may
+        still identify your environment.
+      </div>
+    </section>
+
+    <section>
+      <h2>7. Retention and deletion</h2>
+
+      <p>
+        LocSRV data remains on your device until you remove it using application
+        controls or delete the relevant files. Configured retention settings may
+        automatically remove older logs or backups.
+      </p>
+
+      <p>
+        Uninstalling the application may not delete projects, databases, backups,
+        credentials, certificates, or other user-created development data.
+        Review and remove these items manually when you no longer need them.
+      </p>
+
+      <p>
+        You can remove saved database credentials and tunnel tokens through
+        LocSRV. Other locally stored information can be removed using the
+        relevant delete action or by deleting the LocSRV data directory after
+        stopping all LocSRV-managed processes.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Support communications</h2>
+
+      <p>
+        If you voluntarily contact the publisher, submit an issue, write a Store
+        review, or send a diagnostic report, the submitted content and your
+        chosen contact information will be processed only to respond to the
+        request, investigate the issue, maintain security, and improve LocSRV.
+      </p>
+
+      <p>
+        GitHub Issues are public. Do not post passwords, private keys, access
+        tokens, private source code, database exports, or other confidential
+        information in an issue.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Children's privacy</h2>
+
+      <p>
+        LocSRV is a developer tool and is not directed specifically at children.
+        The publisher does not knowingly collect personal information from
+        children through the application.
+      </p>
+    </section>
+
+    <section>
+      <h2>10. Changes to this policy</h2>
+
+      <p>
+        This policy may be updated when LocSRV features or distribution methods
+        change. The effective date at the top of this page will be updated when
+        material changes are published.
+      </p>
+    </section>
+
+    <section>
+      <h2>11. Contact</h2>
+
+      <p>
+        For privacy or support questions, contact the publisher through:
+      </p>
+
+      <ul>
+        <li>
+          Website:
+          <a href="https://wafarifki.github.io/LocSRV/">
+            https://wafarifki.github.io/LocSRV/
+          </a>
+        </li>
+        <li>
+          Support:
+          <a href="https://github.com/wafarifki/LocSRV/issues">
+            https://github.com/wafarifki/LocSRV/issues
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Wafa Rifqi. LocSRV Privacy Policy.</span>
+  </footer>
+</body>
+</html>
