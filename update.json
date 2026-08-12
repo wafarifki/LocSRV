@@ -1,11 +1,11 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "notes": "Initial release of LocSRV.",
-  "pub_date": "2026-08-04T00:00:00Z",
+  "pub_date": "2026-08-13T00:00:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "",
-      "url": "https://github.com/wafarifki/LocSRV-source/releases/download/v0.1.0/LocSRV-0.1.0-x64-setup.nsis.zip"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUNGNxc01CQ0k1cnNhdk9iclpVbHdVd2IyeDREekJBcVRia1kxLzZOWXg5MlJrcUJzaVdRT1Y5eFZzd0lGVHdidmhZVkwrT1h0SUUyaWw3RXl1Q2MwZ3JxeUVUSFBYVndBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NTYyODMwCWZpbGU6TG9jU1JWXzAuMS4xX3g2NC1zZXR1cC5leGUKRFBZMWVPeitPUWVCdjliZ3prN2F2bjFNdVJqb1lrc3ZGcHRjek15Z2ozYUVpUlJ2THVvZW1wbTJQQjNIYXp2TGE2bStSTlBmYTlQR3FBd0xLZFNZQ1E9PQo=",
+      "url": "https://github.com/wafarifki/LocSRV/releases/download/v.0.1.1/LocSRV_0.1.1_x64-setup.exe"
     }
   }
 }
