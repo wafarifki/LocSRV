@@ -1,30 +1,979 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" data-lang="id" data-theme="dark" data-page="home">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <title>LocSRV - Your Local Server</title>
-    <meta name="description" content="LocSRV is the perfect solution for web developers looking for a stable, comprehensive, and user-friendly local platform." />
-    <meta name="author" content="Wafa Rifqi Anafin" />
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="LocSRV is a local development environment for Windows. Manage servers, runtimes, databases, .test domains, HTTPS, terminals, SSH, and projects from a single application." />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="LocSRV — Local development, made clear." />
+      <meta property="og:description" content="One workspace for servers, runtimes, databases, local domains, HTTPS, terminals, and web projects on Windows." />
+      <meta property="og:url" content="https://wafarifki.github.io/LocSRV/" />
+      <link rel="canonical" href="https://wafarifki.github.io/LocSRV/" />
+      <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.25/dist/lenis.css" />
+      <link rel="stylesheet" href="assets/css/main.css" />
+      <title>LocSRV — Local development, made clear.</title>
+      
+      <!-- Favicons -->
+      <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+      <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png" />
+      <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png" />
+      <link rel="icon" type="image/png" sizes="128x128" href="favicon/favicon-128x128.png" />
 
-    <meta property="og:title" content="LocSRV is the perfect solution for web developers looking for a stable, comprehensive, and user-friendly local platform." />
-    <meta property="og:description" content="LocSRV is the perfect solution for web developers looking for a stable, comprehensive, and user-friendly local platform." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://og.tailgraph.com/og?fontFamily=Roboto&title=LocSRV&titleTailwind=text-gray-800%20font-bold%20text-6xl&titleFontFamily=Poppins&text=Perfect%20Solution%20For%20Web%20Dev%20Looking%20For%20Stable%20Local%20Server&textTailwind=text-gray-700%20text-2xl%20mt-4%20font-semibold&textFontFamily=Poppins&logoTailwind=h-8&bgUrl=https%3A%2F%2Fik.imagekit.io%2Fboostmyo2%2Fogimages_rUeGPDrlM.png%3FupdatedAt%3D1728680113005&bgTailwind=bg-blueGray-900&footer=github.com/wafarifki/LocSRV&footerTailwind=font-bold%20text-3xl%20text-green-600&t=1728680196099&refresh=1%22" />
+      <!-- Apple Touch -->
+      <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-touch-icon-152x152.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="https://wafarifki.github.io/LocSRV/" />
-    <meta name="twitter:image" content="https://og.tailgraph.com/og?fontFamily=Roboto&title=LocSRV&titleTailwind=text-gray-800%20font-bold%20text-6xl&titleFontFamily=Poppins&text=Perfect%20Solution%20For%20Web%20Dev%20Looking%20For%20Stable%20Local%20Server&textTailwind=text-gray-700%20text-2xl%20mt-4%20font-semibold&textFontFamily=Poppins&logoTailwind=h-8&bgUrl=https%3A%2F%2Fik.imagekit.io%2Fboostmyo2%2Fogimages_rUeGPDrlM.png%3FupdatedAt%3D1728680113005&bgTailwind=bg-blueGray-900&footer=github.com/wafarifki/LocSRV&footerTailwind=font-bold%20text-3xl%20text-green-600&t=1728680196099&refresh=1%22" />
-    
-    <script type="module" crossorigin src="/LocSRV/assets/index-Dw2CC4Jw.js"></script>
-    <link rel="modulepreload" crossorigin href="/LocSRV/assets/vendor-8ra9lKN_.js">
-    <link rel="stylesheet" crossorigin href="/LocSRV/assets/index-DA53sbcx.css">
+      <!-- Android / PWA -->
+      <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-chrome-192x192.png" />
+      <link rel="icon" type="image/png" sizes="512x512" href="favicon/android-chrome-512x512.png" />
+      <link rel="manifest" href="favicon/site.webmanifest" />
+
+      <!-- Microsoft Tiles -->
+      <meta name="msapplication-TileColor" content="#22262f" />
+      <meta name="msapplication-config" content="favicon/browserconfig.xml" />
+
+      <script>
+          (() => {
+              try {
+                  const savedTheme = localStorage.getItem("locsrv-theme");
+                  const savedLanguage = localStorage.getItem("locsrv-language");
+                  const theme =
+                      savedTheme === "light" || savedTheme === "dark"
+                          ? savedTheme
+                          : matchMedia("(prefers-color-scheme: light)").matches
+                            ? "light"
+                            : "dark";
+                  const language = savedLanguage === "en" ? "en" : "id";
+                  document.documentElement.dataset.theme = theme;
+                  document.documentElement.dataset.lang = language;
+                  document.documentElement.lang = language;
+              } catch (_) {}
+          })();
+      </script>
   </head>
-
   <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+      <a class="skip-link" href="#main-content" data-i18n="a11y.skip">Lewati ke konten utama</a>
 
+      <div class="page-ambient" aria-hidden="true">
+          <span class="ambient-orb ambient-orb--mint"></span>
+          <span class="ambient-orb ambient-orb--blue"></span>
+          <span class="ambient-grid"></span>
+      </div>
+
+      <header class="site-header" data-site-header>
+          <div class="scroll-progress" aria-hidden="true">
+              <span data-scroll-progress></span>
+          </div>
+          <div class="container header-inner">
+              <a class="brand" href="#top" aria-label="LocSRV, kembali ke atas">
+                  <svg class="brand-mark" viewBox="0 0 256 256" role="img" aria-label="Logo LocSRV">
+                      <defs>
+                          <linearGradient id="brand-gradient" x1="30" y1="24" x2="220" y2="230" gradientUnits="userSpaceOnUse">
+                              <stop stop-color="#78e8c7"></stop>
+                              <stop offset="1" stop-color="#4f7cff"></stop>
+                          </linearGradient>
+                      </defs>
+                      <rect x="12" y="12" width="232" height="232" rx="58" fill="#0b0d12"></rect>
+                      <path d="M72 67v122h78" fill="none" stroke="url(#brand-gradient)" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M123 104h60M123 145h45" fill="none" stroke="#f4f7fb" stroke-width="18" stroke-linecap="round"></path>
+                  </svg>
+                  <span>LocSRV</span>
+              </a>
+
+              <nav class="desktop-nav" aria-label="Navigasi utama">
+                  <a href="#fitur" data-i18n="nav.features">Fitur</a>
+                  <a href="#cara-kerja" data-i18n="nav.workflow">Cara kerja</a>
+                  <a href="#stack" data-i18n="nav.stack">Stack</a>
+                  <a href="#keamanan" data-i18n="nav.security">Keamanan</a>
+                  <a href="#faq">FAQ</a>
+              </nav>
+
+              <div class="header-actions">
+                  <div class="header-preferences">
+                      <div class="language-switch" role="group" aria-label="Pilih bahasa" data-i18n-aria-label="a11y.language">
+                          <button type="button" aria-pressed="true" data-language="id">ID</button>
+                          <button type="button" aria-pressed="false" data-language="en">EN</button>
+                      </div>
+                      <button class="theme-toggle" type="button" aria-label="Gunakan mode terang" data-theme-toggle data-i18n-aria-label="a11y.themeLight">
+                          <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"></path>
+                          </svg>
+                          <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M20 15.2A8.2 8.2 0 0 1 8.8 4a8.3 8.3 0 1 0 11.2 11.2Z"></path>
+                          </svg>
+                      </button>
+                  </div>
+                  <a class="button button--quiet header-download" href="/#download-locsrv">
+                      <span data-i18n="actions.downloadShort">Unduh</span>
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"></path>
+                      </svg>
+                  </a>    
+                  <button class="menu-toggle" type="button" aria-label="Buka menu" aria-controls="mobile-menu" aria-expanded="false" data-menu-toggle>
+                      <span></span>
+                      <span></span>
+                  </button>
+              </div>
+          </div>
+
+          <button class="menu-backdrop" type="button" tabindex="-1" aria-hidden="true" data-menu-backdrop></button>
+          <nav class="mobile-menu" id="mobile-menu" aria-label="Navigasi mobile" aria-hidden="true" inert data-mobile-menu>
+              <div class="mobile-menu__nav">
+                  <a href="#fitur">
+                      <span>01</span>
+                      <b data-i18n="nav.features">Fitur</b>
+                      <i>↗</i>
+                  </a>
+                  <a href="#cara-kerja">
+                      <span>02</span>
+                      <b data-i18n="nav.workflow">Cara kerja</b>
+                      <i>↗</i>
+                  </a>
+                  <a href="#stack">
+                      <span>03</span>
+                      <b data-i18n="nav.stack">Stack</b>
+                      <i>↗</i>
+                  </a>
+                  <a href="#keamanan">
+                      <span>04</span>
+                      <b data-i18n="nav.security">Keamanan</b>
+                      <i>↗</i>
+                  </a>
+                  <a href="#faq">
+                      <span>05</span>
+                      <b>FAQ</b>
+                      <i>↗</i>
+                  </a>
+              </div>
+              <div class="mobile-menu__preferences">
+                  <span data-i18n="preferences.title">Preferensi</span>
+                  <div class="mobile-preference-row">
+                      <span data-i18n="preferences.language">Bahasa</span>
+                      <div class="language-switch" role="group" aria-label="Pilih bahasa" data-i18n-aria-label="a11y.language">
+                          <button type="button" aria-pressed="true" data-language="id">ID</button>
+                          <button type="button" aria-pressed="false" data-language="en">EN</button>
+                      </div>
+                  </div>
+                  <button class="mobile-preference-row mobile-theme-toggle" type="button" data-theme-toggle>
+                      <span data-i18n="preferences.appearance">Tampilan</span>
+                      <strong>
+                          <span data-theme-label>Gelap</span>
+                          <i class="theme-dot"></i>
+                      </strong>
+                  </button>
+              </div>
+              <a class="button button--primary mobile-menu__cta" href="/#download-locsrv">
+                  <span data-i18n="actions.downloadWindows">Unduh untuk Windows</span>
+              </a>
+              <p class="mobile-menu__footer" data-i18n="mobile.localFirst">Native Windows · Local-first · Tanpa akun</p>
+          </nav>
+      </header>
+
+      <main id="main-content">
+          <section class="hero section" id="top">
+              <div class="container">
+                  <div class="hero-panel hero-surface">
+                      <div class="hero-panel__chrome" aria-hidden="true">
+                          <span class="hero-panel__identity">
+                              <i></i>
+                              <b>LocSRV</b>
+                              <span>/</span>
+                              <span data-i18n="hero.workspaceLabel">Developer workspace</span>
+                          </span>
+                          <span class="hero-panel__status">
+                              <i></i>
+                              <span data-i18n="hero.systemReady">System ready</span>
+                          </span>
+                      </div>
+
+                      <div class="hero-grid">
+                          <div class="hero-copy">
+                              <div class="eyebrow">
+                                  <span class="eyebrow-pulse" aria-hidden="true"></span>
+                                  <span data-i18n="hero.eyebrow">Windows 10/11 · x64 · Native stack</span>
+                              </div>
+                              <h1>
+                                  <span class="hero-title-plain" data-i18n="hero.titleTop">Dev lokal.</span>
+                                  <span data-i18n="hero.titleMiddle">Lebih cepat.</span>
+                                  <span data-i18n="hero.titleAccent">Tanpa ribet.</span>
+                              </h1>
+                              <p class="hero-lead" data-i18n-html="hero.lead">
+                                  Nyalakan server, runtime, database, domain
+                                  <code>.test</code>
+                                  , HTTPS, dan terminal dari satu control center yang cepat dan tenang.
+                              </p>
+                              <div class="hero-actions">
+                                  <a class="button button--primary button--large" href="/#download-locsrv">
+                                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                                          <path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"></path>
+                                      </svg>
+                                      <span data-i18n="actions.downloadWindows">Unduh untuk Windows</span>
+                                  </a>
+                                  <a class="button button--ghost button--large" href="#cara-kerja">
+                                      <span data-i18n="actions.seeHow">Lihat cara kerjanya</span>
+                                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                                          <path d="m9 18 6-6-6-6"></path>
+                                      </svg>
+                                  </a>
+                              </div>
+                              <ul class="hero-trust" aria-label="Keunggulan utama">
+                                  <li>
+                                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"></path></svg>
+                                      <span data-i18n="hero.trustAccount">Tanpa akun wajib</span>
+                                  </li>
+                                  <li>
+                                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"></path></svg>
+                                      <span data-i18n="hero.trustPath">Tidak mengubah global PATH</span>
+                                  </li>
+                                  <li>
+                                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"></path></svg>
+                                      <span data-i18n="hero.trustLocal">Data tetap lokal</span>
+                                  </li>
+                              </ul>
+                          </div>
+
+                          <div class="hero-visual" data-hero-visual data-looping-section>
+                              <div class="visual-halo" aria-hidden="true"></div>
+                              <div class="hero-stage-status" aria-hidden="true">
+                                  <span>
+                                      <i></i>
+                                      <b data-i18n="hero.stageReady">Local workspace ready</b>
+                                  </span>
+                                  <code>https://demo.test</code>
+                              </div>
+                              <div class="app-window" data-app-window>
+                                  <div class="window-bar">
+                                      <div class="window-brand">
+                                          <svg viewBox="0 0 256 256" aria-hidden="true">
+                                              <rect x="12" y="12" width="232" height="232" rx="58" fill="#0b0d12"></rect>
+                                              <path d="M72 67v122h78" fill="none" stroke="#78e8c7" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                              <path d="M123 104h60M123 145h45" fill="none" stroke="#f4f7fb" stroke-width="18" stroke-linecap="round"></path>
+                                          </svg>
+                                          <span>LocSRV</span>
+                                      </div>
+                                      <div class="window-controls" aria-hidden="true">
+                                          <span></span>
+                                          <span></span>
+                                          <span></span>
+                                      </div>
+                                  </div>
+
+                                  <div class="app-layout">
+                                      <aside class="app-sidebar" aria-label="Pratinjau navigasi aplikasi">
+                                          <span class="sidebar-item is-active">
+                                              <svg viewBox="0 0 24 24" aria-hidden="true">
+                                                  <path d="M4 13h6V4H4v9Zm10 7h6v-9h-6v9ZM4 20h6v-3H4v3Zm10-13h6V4h-6v3Z"></path>
+                                              </svg>
+                                              Dashboard
+                                          </span>
+                                          <span class="sidebar-item">
+                                              <svg viewBox="0 0 24 24" aria-hidden="true">
+                                                  <path d="m4 7 8-4 8 4-8 4-8-4Zm0 5 8 4 8-4M4 17l8 4 8-4"></path>
+                                              </svg>
+                                              Packages
+                                          </span>
+                                          <span class="sidebar-item">
+                                              <svg viewBox="0 0 24 24" aria-hidden="true">
+                                                  <path d="M5 5h14v5H5V5Zm0 9h14v5H5v-5Zm3-6h.01M8 17h.01"></path>
+                                              </svg>
+                                              Services
+                                          </span>
+                                          <span class="sidebar-item">
+                                              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h7l2 2h9v10H3V7Z"></path></svg>
+                                              Projects
+                                          </span>
+                                          <span class="sidebar-item">
+                                              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 8 4 4-4 4m6 0h6"></path></svg>
+                                              Terminal
+                                          </span>
+                                      </aside>
+
+                                      <div class="app-content">
+                                          <div class="app-heading">
+                                              <div>
+                                                  <span class="app-kicker">Workspace overview</span>
+                                                  <strong>Selamat datang kembali.</strong>
+                                              </div>
+                                              <span class="profile-pill">
+                                                  <span></span>
+                                                  Default profile
+                                              </span>
+                                          </div>
+
+                                          <div class="app-stats">
+                                              <article>
+                                                  <span>Web server</span>
+                                                  <strong>Apache</strong>
+                                                  <small>
+                                                      <i class="status-dot"></i>
+                                                      Running
+                                                  </small>
+                                              </article>
+                                              <article>
+                                                  <span>Runtime</span>
+                                                  <strong>PHP 8.4</strong>
+                                                  <small>Active version</small>
+                                              </article>
+                                              <article>
+                                                  <span>Project</span>
+                                                  <strong>demo.test</strong>
+                                                  <small>HTTPS ready</small>
+                                              </article>
+                                          </div>
+
+                                          <div class="service-panel">
+                                              <div class="panel-title">
+                                                  <div>
+                                                      <span>Local services</span>
+                                                      <small>Semua berjalan di loopback</small>
+                                                  </div>
+                                                  <span class="panel-action">Kelola</span>
+                                              </div>
+                                              <div class="service-row">
+                                                  <span class="service-icon service-icon--apache">A</span>
+                                                  <span>
+                                                      <strong>Apache HTTP Server</strong>
+                                                      <small>127.0.0.1:80</small>
+                                                  </span>
+                                                  <i class="signal">
+                                                      <b></b>
+                                                      <b></b>
+                                                      <b></b>
+                                                  </i>
+                                                  <span class="running-pill">Running</span>
+                                              </div>
+                                              <div class="service-row">
+                                                  <span class="service-icon service-icon--php">PHP</span>
+                                                  <span>
+                                                      <strong>PHP FastCGI</strong>
+                                                      <small>127.0.0.1:9000</small>
+                                                  </span>
+                                                  <i class="signal">
+                                                      <b></b>
+                                                      <b></b>
+                                                      <b></b>
+                                                  </i>
+                                                  <span class="running-pill">Running</span>
+                                              </div>
+                                              <div class="service-row">
+                                                  <span class="service-icon service-icon--mysql">M</span>
+                                                  <span>
+                                                      <strong>MySQL</strong>
+                                                      <small>127.0.0.1:3306</small>
+                                                  </span>
+                                                  <i class="signal">
+                                                      <b></b>
+                                                      <b></b>
+                                                      <b></b>
+                                                  </i>
+                                                  <span class="running-pill">Running</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="floating-card floating-card--domain" aria-hidden="true">
+                                  <span class="floating-icon">
+                                      <svg viewBox="0 0 24 24">
+                                          <path d="M10 13a5 5 0 0 0 7.1.1l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1M14 11a5 5 0 0 0-7.1-.1l-2 2A5 5 0 0 0 12 20l1.1-1.1"></path>
+                                      </svg>
+                                  </span>
+                                  <span>
+                                      <small>Local domain</small>
+                                      <strong>demo.test</strong>
+                                  </span>
+                                  <i></i>
+                              </div>
+
+                              <div class="floating-card floating-card--verified" aria-hidden="true">
+                                  <span class="floating-icon">
+                                      <svg viewBox="0 0 24 24">
+                                          <path d="M12 3 4.5 6v5c0 4.6 3.2 8.9 7.5 10 4.3-1.1 7.5-5.4 7.5-10V6L12 3Zm-3 9 2 2 4-4"></path>
+                                      </svg>
+                                  </span>
+                                  <span>
+                                      <small>Package integrity</small>
+                                      <strong>SHA-256 verified</strong>
+                                  </span>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="hero-panel__footer" role="group" aria-label="Ringkasan keunggulan LocSRV">
+                          <span>
+                              <i aria-hidden="true"></i>
+                              <b>Native Windows</b>
+                              <small data-i18n="hero.metricNativeText">Tanpa lapisan container</small>
+                          </span>
+                          <span>
+                              <i aria-hidden="true"></i>
+                              <b>9+ tools</b>
+                              <small data-i18n="hero.metricToolsText">Satu control center</small>
+                          </span>
+                          <span>
+                              <i aria-hidden="true"></i>
+                              <b>Local-first</b>
+                              <small data-i18n="hero.metricLocalText">Project tetap milikmu</small>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+          <section class="stack-marquee" aria-label="Teknologi yang didukung" data-looping-section>
+              <div class="marquee-track">
+                  <div class="marquee-group">
+                      <span>Apache</span>
+                      <i></i>
+                      <span>Nginx</span>
+                      <i></i>
+                      <span>PHP</span>
+                      <i></i>
+                      <span>Node.js</span>
+                      <i></i>
+                      <span>MySQL</span>
+                      <i></i>
+                      <span>MariaDB</span>
+                      <i></i>
+                      <span>PostgreSQL</span>
+                      <i></i>
+                      <span>Redis</span>
+                      <i></i>
+                      <span>Mailpit</span>
+                      <i></i>
+                  </div>
+                  <div class="marquee-group" aria-hidden="true">
+                      <span>Apache</span>
+                      <i></i>
+                      <span>Nginx</span>
+                      <i></i>
+                      <span>PHP</span>
+                      <i></i>
+                      <span>Node.js</span>
+                      <i></i>
+                      <span>MySQL</span>
+                      <i></i>
+                      <span>MariaDB</span>
+                      <i></i>
+                      <span>PostgreSQL</span>
+                      <i></i>
+                      <span>Redis</span>
+                      <i></i>
+                      <span>Mailpit</span>
+                      <i></i>
+                  </div>
+              </div>
+          </section>
+
+          <section class="proof-strip" aria-label="Ringkasan keunggulan LocSRV">
+              <div class="container proof-grid">
+                  <article>
+                      <strong>Native</strong>
+                      <span>Performa Windows tanpa lapisan container</span>
+                  </article>
+                  <article>
+                      <strong>9+ tools</strong>
+                      <span>Runtime, server, database, dan utilitas</span>
+                  </article>
+                  <article>
+                      <strong>Local-first</strong>
+                      <span>Project dan credential tetap milikmu</span>
+                  </article>
+              </div>
+          </section>
+
+          <section class="section features-section" id="fitur">
+              <div class="container">
+                  <div class="section-heading reveal">
+                      <div>
+                          <span class="section-label">Satu workspace, lebih sedikit distraksi</span>
+                          <h2>
+                              Semua alat penting.
+                              <br />
+                              Tetap terasa sederhana.
+                          </h2>
+                      </div>
+                      <p>
+                          LocSRV menyatukan pekerjaan yang biasanya tersebar di installer, file konfigurasi, terminal, dan Task
+                          Manager—tanpa menyembunyikan apa yang sebenarnya terjadi.
+                      </p>
+                  </div>
+
+                  <div class="bento-grid">
+                      <article class="bento-card bento-card--packages reveal">
+                          <div class="card-topline">
+                              <span class="feature-icon">
+                                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                                      <path d="m4 7 8-4 8 4-8 4-8-4Zm0 5 8 4 8-4M4 17l8 4 8-4"></path>
+                                  </svg>
+                              </span>
+                              <span class="micro-label">Package manager</span>
+                          </div>
+                          <h3>Stack sesuai kebutuhanmu.</h3>
+                          <p>
+                              Pilih versi runtime dan service yang dibutuhkan. Unduhan berlangsung lewat HTTPS dan diverifikasi sebelum
+                              diaktifkan.
+                          </p>
+                          <div class="package-list" aria-hidden="true">
+                              <span>
+                                  <b>PHP</b>
+                                  <small>8.5</small>
+                                  <i class="is-ready"></i>
+                              </span>
+                              <span>
+                                  <b>Node.js</b>
+                                  <small>24 LTS</small>
+                                  <i class="is-ready"></i>
+                              </span>
+                              <span>
+                                  <b>PostgreSQL</b>
+                                  <small>17</small>
+                                  <i></i>
+                              </span>
+                          </div>
+                      </article>
+
+                      <article class="bento-card bento-card--services reveal">
+                          <div class="card-topline">
+                              <span class="feature-icon">
+                                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                                      <path d="M5 5h14v5H5V5Zm0 9h14v5H5v-5Zm3-6h.01M8 17h.01"></path>
+                                  </svg>
+                              </span>
+                              <span class="micro-label">Service control</span>
+                          </div>
+                          <h3>Status yang bisa dipahami sekilas.</h3>
+                          <p>
+                              Start, stop, health check, port, uptime, dan log berada di tempat yang sama. Tidak perlu menebak proses mana
+                              yang masih berjalan.
+                          </p>
+                          <div class="service-orbit" aria-hidden="true" data-looping-section>
+                              <span class="orbit-core"><i></i></span>
+                              <span class="orbit-node orbit-node--one">A</span>
+                              <span class="orbit-node orbit-node--two">PHP</span>
+                              <span class="orbit-node orbit-node--three">DB</span>
+                          </div>
+                      </article>
+
+                      <article class="bento-card bento-card--domains reveal">
+                          <div class="card-topline">
+                              <span class="feature-icon">
+                                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                                      <path d="M12 3 4.5 6v5c0 4.6 3.2 8.9 7.5 10 4.3-1.1 7.5-5.4 7.5-10V6L12 3Zm-3 9 2 2 4-4"></path>
+                                  </svg>
+                              </span>
+                              <span class="micro-label">Local HTTPS</span>
+                          </div>
+                          <h3>Domain lokal yang terasa nyata.</h3>
+                          <p>
+                              Gunakan
+                              <code>project.test</code>
+                              , virtual host, dan sertifikat HTTPS lokal dengan perubahan sistem yang selalu meminta konfirmasi.
+                          </p>
+                          <div class="browser-chip" aria-hidden="true">
+                              <span></span>
+                              <svg viewBox="0 0 24 24"><path d="M8 11V8a4 4 0 0 1 8 0v3M6 11h12v9H6v-9Z"></path></svg>
+                              <strong>https://project.test</strong>
+                          </div>
+                      </article>
+
+                      <article class="bento-card bento-card--projects reveal">
+                          <div class="card-topline">
+                              <span class="feature-icon">
+                                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h7l2 2h9v10H3V7Z"></path></svg>
+                              </span>
+                              <span class="micro-label">Quick project</span>
+                          </div>
+                          <h3>Dari ide ke workspace aktif.</h3>
+                          <p>
+                              Mulai project PHP, Laravel, Symfony, WordPress, Django, React, Next.js, atau static site dengan recipe yang
+                              tervalidasi.
+                          </p>
+                          <div class="recipe-tags" aria-hidden="true">
+                              <span>Laravel</span>
+                              <span>WordPress</span>
+                              <span>React</span>
+                              <span>Django</span>
+                              <span>Next.js</span>
+                          </div>
+                      </article>
+
+                      <article class="bento-card bento-card--terminal reveal">
+                          <div class="card-topline">
+                              <span class="feature-icon">
+                                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 8 4 4-4 4m6 0h6"></path></svg>
+                              </span>
+                              <span class="micro-label">Terminal &amp; SSH</span>
+                          </div>
+                          <h3>Terminal yang tahu konteks project.</h3>
+                          <p>
+                              Buka PowerShell, CMD, atau sesi SSH tervalidasi dengan working directory dan runtime PATH yang sesuai
+                              profile aktif.
+                          </p>
+                          <div class="terminal-preview" role="img" aria-label="Contoh terminal">
+                              <span>
+                                  <i>~</i>
+                                  cd demo-project
+                              </span>
+                              <span>
+                                  <i>›</i>
+                                  php artisan serve
+                              </span>
+                              <span class="terminal-success">Server running at demo.test</span>
+                              <b class="terminal-cursor" aria-hidden="true"></b>
+                          </div>
+                      </article>
+
+                      <article class="bento-card bento-card--data reveal">
+                          <div class="card-topline">
+                              <span class="feature-icon">
+                                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                                      <path d="M12 4c4.4 0 8 1.3 8 3s-3.6 3-8 3-8-1.3-8-3 3.6-3 8-3Zm-8 3v5c0 1.7 3.6 3 8 3s8-1.3 8-3V7M4 12v5c0 1.7 3.6 3 8 3s8-1.3 8-3v-5"></path>
+                                  </svg>
+                              </span>
+                              <span class="micro-label">Database &amp; backup</span>
+                          </div>
+                          <h3>Data lokal, tetap terkendali.</h3>
+                          <p>
+                              Buat database, simpan credential di Windows Credential Manager, lalu backup dan restore dengan CLI native
+                              dari engine pilihanmu.
+                          </p>
+                          <div class="data-flow" aria-hidden="true">
+                              <span>Database</span>
+                              <i></i>
+                              <span>Verified backup</span>
+                              <i></i>
+                              <span>Restore</span>
+                          </div>
+                      </article>
+                  </div>
+              </div>
+          </section>
+
+          <section class="section workflow-section" id="cara-kerja">
+              <div class="container workflow-grid">
+                  <div class="workflow-copy reveal">
+                      <span class="section-label">Alur yang masuk akal</span>
+                      <h2>Setup lokal dalam tiga langkah yang jelas.</h2>
+                      <p>
+                          Setiap langkah memberi tahu apa yang akan diunduh, ditulis, atau dijalankan. Tidak ada konfigurasi sistem yang
+                          terjadi diam-diam.
+                      </p>
+                      <a class="text-link" href="#stack">
+                          Susun stack-mu
+                          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"></path></svg>
+                      </a>
+                  </div>
+
+                  <ol class="workflow-steps">
+                      <li class="workflow-step reveal">
+                          <span class="step-number">01</span>
+                          <div>
+                              <h3>Pilih package</h3>
+                              <p>Instal web server, runtime, database, dan tool dari katalog terverifikasi.</p>
+                          </div>
+                          <span class="step-state">HTTPS + SHA-256</span>
+                      </li>
+                      <li class="workflow-step reveal">
+                          <span class="step-number">02</span>
+                          <div>
+                              <h3>Buat atau deteksi project</h3>
+                              <p>Gunakan recipe baru atau hubungkan project yang sudah ada di workspace.</p>
+                          </div>
+                          <span class="step-state">Framework-aware</span>
+                      </li>
+                      <li class="workflow-step reveal">
+                          <span class="step-number">03</span>
+                          <div>
+                              <h3>Jalankan dengan percaya diri</h3>
+                              <p>Aktifkan domain, HTTPS, service, terminal, lalu pantau semuanya dari dashboard.</p>
+                          </div>
+                          <span class="step-state">Local-first</span>
+                      </li>
+                  </ol>
+              </div>
+          </section>
+
+          <section class="section stack-section" id="stack">
+              <div class="container">
+                  <div class="section-heading section-heading--center reveal">
+                      <div>
+                          <span class="section-label">Stack composer</span>
+                          <h2>Satu aplikasi, banyak cara bekerja.</h2>
+                      </div>
+                      <p>Coba susun contoh stack. Pilihan ini hanya pratinjau interaktif dan tidak mengubah perangkatmu.</p>
+                  </div>
+
+                  <div class="stack-builder reveal" data-stack-builder>
+                      <div class="stack-options">
+                          <fieldset data-stack-group="server">
+                              <legend>Web server</legend>
+                              <div class="choice-row">
+                                  <button type="button" aria-pressed="true" data-stack-value="Apache">Apache</button>
+                                  <button type="button" aria-pressed="false" data-stack-value="Nginx">Nginx</button>
+                              </div>
+                          </fieldset>
+                          <fieldset data-stack-group="runtime">
+                              <legend>Runtime</legend>
+                              <div class="choice-row">
+                                  <button type="button" aria-pressed="true" data-stack-value="PHP 8.4">PHP 8.4</button>
+                                  <button type="button" aria-pressed="false" data-stack-value="PHP 8.5">PHP 8.5</button>
+                                  <button type="button" aria-pressed="false" data-stack-value="Node.js 24">Node.js 24</button>
+                              </div>
+                          </fieldset>
+                          <fieldset data-stack-group="database">
+                              <legend>Database</legend>
+                              <div class="choice-row">
+                                  <button type="button" aria-pressed="true" data-stack-value="MySQL">MySQL</button>
+                                  <button type="button" aria-pressed="false" data-stack-value="MariaDB">MariaDB</button>
+                                  <button type="button" aria-pressed="false" data-stack-value="PostgreSQL">PostgreSQL</button>
+                              </div>
+                          </fieldset>
+                          <fieldset data-stack-group="tool">
+                              <legend>Tool tambahan</legend>
+                              <div class="choice-row">
+                                  <button type="button" aria-pressed="true" data-stack-value="Redis">Redis</button>
+                                  <button type="button" aria-pressed="false" data-stack-value="Mailpit">Mailpit</button>
+                                  <button type="button" aria-pressed="false" data-stack-value="Cloudflare Tunnel">
+                                      Cloudflare Tunnel
+                                  </button>
+                              </div>
+                          </fieldset>
+                      </div>
+
+                      <div class="stack-result">
+                          <div class="result-toolbar">
+                              <span>
+                                  <i></i>
+                                  <i></i>
+                                  <i></i>
+                              </span>
+                              <small>locsrv / profile.preview</small>
+                          </div>
+                          <div class="result-content" aria-live="polite" data-stack-result>
+                              <span class="result-label">Development profile</span>
+                              <h3>Web workspace</h3>
+                              <dl>
+                                  <div>
+                                      <dt>Server</dt>
+                                      <dd data-result-key="server">Apache</dd>
+                                  </div>
+                                  <div>
+                                      <dt>Runtime</dt>
+                                      <dd data-result-key="runtime">PHP 8.4</dd>
+                                  </div>
+                                  <div>
+                                      <dt>Database</dt>
+                                      <dd data-result-key="database">MySQL</dd>
+                                  </div>
+                                  <div>
+                                      <dt>Tool</dt>
+                                      <dd data-result-key="tool">Redis</dd>
+                                  </div>
+                              </dl>
+                              <div class="result-status">
+                                  <span>
+                                      <i></i>
+                                      Siap dijalankan secara lokal
+                                  </span>
+                                  <small>demo.test</small>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+          <section class="section security-section" id="keamanan">
+              <div class="container security-card reveal">
+                  <div class="security-copy">
+                      <span class="section-label">Local-first by design</span>
+                      <h2>Kontrol tetap ada di tanganmu.</h2>
+                      <p>
+                          LocSRV dirancang untuk mengelola development environment tanpa menjadikan project dan credential sebagai produk
+                          sampingan.
+                      </p>
+                      <a class="text-link" href="https://wafarifki.github.io/LocSRV/privacy.html" target="_blank" rel="noreferrer">
+                          Baca kebijakan privasi
+                          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"></path></svg>
+                      </a>
+                  </div>
+
+                  <div class="security-list">
+                      <article>
+                          <span class="security-check">
+                              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"></path></svg>
+                          </span>
+                          <div>
+                              <h3>Download terverifikasi</h3>
+                              <p>Package menggunakan HTTPS dan checksum SHA-256 yang ditentukan katalog.</p>
+                          </div>
+                      </article>
+                      <article>
+                          <span class="security-check">
+                              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"></path></svg>
+                          </span>
+                          <div>
+                              <h3>Perubahan sistem selalu terlihat</h3>
+                              <p>Hosts, local CA, penghapusan data, dan public tunnel membutuhkan konfirmasi.</p>
+                          </div>
+                      </article>
+                      <article>
+                          <span class="security-check">
+                              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"></path></svg>
+                          </span>
+                          <div>
+                              <h3>Credential memakai penyimpanan Windows</h3>
+                              <p>Password database dan token tunnel disimpan melalui Windows Credential Manager.</p>
+                          </div>
+                      </article>
+                      <article>
+                          <span class="security-check">
+                              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"></path></svg>
+                          </span>
+                          <div>
+                              <h3>Tanpa telemetry publisher</h3>
+                              <p>Tidak ada iklan, akun cloud wajib, atau pengiriman source code ke server LocSRV.</p>
+                          </div>
+                      </article>
+                  </div>
+              </div>
+          </section>
+
+          <section class="section faq-section" id="faq">
+              <div class="container faq-grid">
+                  <div class="faq-heading reveal">
+                      <span class="section-label">Pertanyaan umum</span>
+                      <h2>Hal yang perlu kamu tahu sebelum mulai.</h2>
+                      <p>Masih menemukan masalah? Laporkan melalui GitHub Issues agar dapat ditelusuri dengan konteks yang cukup.</p>
+                      <a class="text-link" href="https://github.com/wafarifki/LocSRV/issues" target="_blank" rel="noreferrer">
+                          Buka pusat dukungan
+                          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"></path></svg>
+                      </a>
+                  </div>
+
+                  <div class="faq-list reveal">
+                      <details open>
+                          <summary>
+                              Apakah LocSRV membutuhkan Docker?
+                              <span aria-hidden="true"></span>
+                          </summary>
+                          <p>
+                              Tidak. LocSRV menjalankan runtime dan service Windows secara native di dalam struktur direktori yang
+                              dikelolanya.
+                          </p>
+                      </details>
+                      <details>
+                          <summary>
+                              Apakah Apache, PHP, dan database sudah ada di installer?
+                              <span aria-hidden="true"></span>
+                          </summary>
+                          <p>
+                              Tidak. Package pihak ketiga diunduh hanya setelah kamu memilih Install, lalu diverifikasi sebelum diekstrak
+                              dan diaktifkan.
+                          </p>
+                      </details>
+                      <details>
+                          <summary>
+                              Di mana LocSRV menyimpan data?
+                              <span aria-hidden="true"></span>
+                          </summary>
+                          <p>
+                              Build terinstal menyimpan data yang dapat berubah di folder
+                              <code>data</code>
+                              di bawah direktori instalasi. Lokasi aktual selalu ditampilkan pada wizard dan Settings.
+                          </p>
+                      </details>
+                      <details>
+                          <summary>
+                              Apakah domain lokal dan HTTPS mengubah Windows?
+                              <span aria-hidden="true"></span>
+                          </summary>
+                          <p>
+                              Jika kamu mengaktifkannya, LocSRV dapat memperbarui hosts file dan menambahkan local CA ke certificate store
+                              pengguna. Tindakan tersebut selalu meminta konfirmasi lebih dahulu.
+                          </p>
+                      </details>
+                      <details>
+                          <summary>
+                              Apakah project bisa dibagikan ke internet?
+                              <span aria-hidden="true"></span>
+                          </summary>
+                          <p>
+                              Bisa melalui Cloudflare Quick Tunnel. Fitur ini bersifat opsional, membutuhkan cloudflared, dan menampilkan
+                              peringatan sebelum endpoint lokal dibuka untuk akses publik.
+                          </p>
+                      </details>
+                  </div>
+              </div>
+          </section>
+
+          <section class="section final-cta" id="download-locsrv">
+              <div class="container">
+                  <div class="cta-card reveal">
+                      <div class="cta-glow" aria-hidden="true"></div>
+                      <div>
+                          <span class="section-label">Siap merapikan local development?</span>
+                          <h2>Bangun web. Bukan setup environment.</h2>
+                          <p>Mulai dengan LocSRV untuk Windows dan susun stack yang benar-benar sesuai dengan cara kerjamu.</p>
+                      </div>
+                      <div class="cta-actions">
+                          <ms-store-badge productid="xp8bvdk2pgkg95"productname="LocSRV"window-mode="direct"theme="light"size="large"language="en-gb"animation="on"></ms-store-badge>
+                          <span>Windows 10/11 · x64</span>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      </main>
+
+      <a class="back-to-top" href="#top" aria-label="Kembali ke atas" data-back-to-top data-i18n-aria-label="a11y.backToTop">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-5 5m5-5 5 5"></path></svg>
+      </a>
+
+      <footer class="site-footer">
+          <div class="container footer-grid">
+              <div>
+                  <a class="brand" href="#top" aria-label="LocSRV, kembali ke atas">
+                      <svg class="brand-mark" viewBox="0 0 256 256" aria-hidden="true">
+                          <rect x="12" y="12" width="232" height="232" rx="58" fill="#0b0d12"></rect>
+                          <path d="M72 67v122h78" fill="none" stroke="#78e8c7" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M123 104h60M123 145h45" fill="none" stroke="#f4f7fb" stroke-width="18" stroke-linecap="round"></path>
+                      </svg>
+                      <span>LocSRV</span>
+                  </a>
+                  <p data-i18n="footer.tagline">Lingkungan pengembangan web lokal yang terstruktur untuk Windows.</p>
+              </div>
+              <div class="footer-links">
+                  <div>
+                      <strong data-i18n="footer.product">Produk</strong>
+                      <a href="#fitur" data-i18n="nav.features">Fitur</a>
+                      <a href="#stack">Stack</a>
+                      <a href="/#download-locsrv" data-i18n="actions.downloadShort">
+                          Unduh
+                      </a>
+                  </div>
+                  <div>
+                      <strong data-i18n="footer.support">Dukungan</strong>
+                      <a href="#faq">FAQ</a>
+                      <a href="https://github.com/wafarifki/LocSRV/issues" target="_blank" rel="noreferrer">GitHub Issues</a>
+                      <a href="https://wafarifki.github.io/LocSRV/privacy.html" target="_blank" rel="noreferrer" data-i18n="nav.privacy">
+                          Privasi
+                      </a>
+                  </div>
+              </div>
+          </div>
+          <div class="container footer-bottom">
+              <span>© 2026 Faceindo Developer Team. LocSRV.</span>
+              <span data-i18n="footer.focus">Dibuat untuk developer yang ingin tetap fokus.</span>
+          </div>
+      </footer>
+
+      <script src="https://unpkg.com/lenis@1.3.25/dist/lenis.min.js" defer></script>
+      <script src="assets/js/script.js" defer></script>
+      <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
   </body>
 </html>

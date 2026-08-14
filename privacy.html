@@ -1,534 +1,548 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta
-    name="description"
-    content="Privacy Policy for the LocSRV Windows desktop application."
-  >
-  <title>LocSRV Privacy Policy</title>
-
-  <style>
-    :root {
-      color-scheme: dark;
-      font-family:
-        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      background: #080b10;
-      color: #e8edf5;
-      line-height: 1.65;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at top left, rgba(38, 132, 255, 0.13), transparent 32rem),
-        #080b10;
-    }
-
-    a {
-      color: #75b7ff;
-    }
-
-    a:hover {
-      color: #a8d3ff;
-    }
-
-    header,
-    main,
-    footer {
-      width: min(860px, calc(100% - 32px));
-      margin-inline: auto;
-    }
-
-    header {
-      padding: 72px 0 30px;
-    }
-
-    main {
-      padding-bottom: 48px;
-    }
-
-    footer {
-      padding: 24px 0 48px;
-      border-top: 1px solid #27303d;
-      color: #98a4b5;
-      font-size: 0.9rem;
-    }
-
-    .eyebrow {
-      margin: 0 0 10px;
-      color: #75b7ff;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.2rem, 7vw, 4rem);
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-    }
-
-    .intro {
-      max-width: 700px;
-      margin: 20px 0 0;
-      color: #aeb9c8;
-      font-size: 1.05rem;
-    }
-
-    .metadata {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 24px;
-      margin-top: 24px;
-      color: #98a4b5;
-      font-size: 0.9rem;
-    }
-
-    section {
-      margin-top: 18px;
-      padding: 26px;
-      border: 1px solid #27303d;
-      border-radius: 16px;
-      background: rgba(17, 22, 30, 0.88);
-    }
-
-    h2 {
-      margin: 0 0 12px;
-      font-size: 1.25rem;
-      letter-spacing: -0.015em;
-    }
-
-    h3 {
-      margin: 22px 0 8px;
-      font-size: 1rem;
-    }
-
-    p,
-    ul {
-      margin-top: 10px;
-      margin-bottom: 0;
-    }
-
-    ul {
-      padding-left: 22px;
-    }
-
-    li + li {
-      margin-top: 8px;
-    }
-
-    .summary {
-      border-color: rgba(67, 153, 255, 0.4);
-      background: rgba(24, 83, 151, 0.14);
-    }
-
-    .notice {
-      padding: 14px 16px;
-      border-left: 3px solid #75b7ff;
-      border-radius: 6px;
-      background: #0d131c;
-      color: #cbd5e2;
-    }
-
-    code {
-      padding: 2px 6px;
-      border-radius: 5px;
-      background: #080b10;
-      color: #d9e8fb;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        padding-top: 44px;
-      }
-
-      section {
-        padding: 20px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <p class="eyebrow">LocSRV for Windows</p>
-    <h1>Privacy Policy</h1>
-
-    <p class="intro">
-      This Privacy Policy explains how the LocSRV Windows desktop application
-      handles information when you install and use it.
-    </p>
-
-    <div class="metadata">
-      <span><strong>Publisher:</strong> Wafa Rifqi</span>
-      <span><strong>Effective date:</strong> August 11, 2026</span>
-      <span><strong>Application:</strong> LocSRV</span>
-    </div>
-  </header>
-
-  <main>
-    <section class="summary">
-      <h2>Privacy summary</h2>
-
-      <p>
-        LocSRV does not require a LocSRV account and does not include advertising
-        or publisher-operated analytics or telemetry.
-      </p>
-
-      <p>
-        Project files, configuration, credentials, logs, local certificates,
-        database content, and terminal activity are not transmitted to the
-        LocSRV publisher or to a server controlled by the publisher.
-      </p>
-
-      <p>
-        Network communication occurs when requested by the user or when required
-        by an enabled feature, such as downloading development packages,
-        connecting through SSH, checking for updates, or starting a Cloudflare
-        Tunnel.
-      </p>
-    </section>
-
-    <section>
-      <h2>1. Scope</h2>
-
-      <p>
-        This policy applies to the LocSRV Windows desktop application and its
-        official website and support pages.
-      </p>
-
-      <p>
-        Software packages and services that you choose to install or connect to
-        have their own privacy policies and terms.
-      </p>
-    </section>
-
-    <section>
-      <h2>2. Information LocSRV processes locally</h2>
-
-      <p>
-        LocSRV processes and stores information on your device so that it can
-        manage your local development environment. Depending on the features you
-        use, this may include:
-      </p>
-
-      <ul>
-        <li>
-          Application preferences, including language, theme, workspace paths,
-          terminal and editor preferences, startup preferences, domain patterns,
-          update preferences, and log-retention settings.
-        </li>
-        <li>
-          Project names, local filesystem paths, local development domains,
-          web-server configuration, runtime selections, port assignments, and
-          development profile settings.
-        </li>
-        <li>
-          Development-profile environment variables and their values. These
-          values remain in locally stored profile files.
-        </li>
-        <li>
-          Package metadata, download progress, integrity hashes, installed
-          runtime records, and configuration files for local development tools.
-        </li>
-        <li>
-          Local service output, application logs, sanitized diagnostic reports,
-          database backups, and other files created through features you use.
-        </li>
-        <li>
-          SSH profile names, server hostnames or IP addresses, ports, usernames,
-          authentication method, and an optional local private-key path.
-        </li>
-        <li>
-          Local database usernames and credentials needed to administer databases
-          you create through LocSRV.
-        </li>
-        <li>
-          Cloudflare Tunnel credentials when you explicitly save a tunnel token.
-        </li>
-        <li>
-          Locally generated certificate-authority files, project certificates,
-          and private keys used for local HTTPS development.
-        </li>
-      </ul>
-
-      <h3>Credentials and private keys</h3>
-
-      <ul>
-        <li>
-          Database passwords and Cloudflare Tunnel tokens are stored using
-          Windows Credential Manager.
-        </li>
-        <li>
-          SSH passwords are entered interactively through Windows OpenSSH and
-          are not saved by LocSRV.
-        </li>
-        <li>
-          LocSRV stores only the selected SSH private-key path. It does not copy
-          or upload the private-key contents.
-        </li>
-        <li>
-          Locally generated certificate private keys remain on the device and
-          are not transmitted to the publisher.
-        </li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>3. Information LocSRV does not collect</h2>
-
-      <p>LocSRV does not intentionally send the following to the publisher:</p>
-
-      <ul>
-        <li>Your project source code or website content.</li>
-        <li>Your database contents or database backups.</li>
-        <li>Your terminal commands or SSH session contents.</li>
-        <li>Your passwords, access tokens, or private keys.</li>
-        <li>Your local certificates or certificate private keys.</li>
-        <li>Your contact list, photos, camera, microphone, or precise location.</li>
-        <li>Advertising identifiers or cross-application tracking data.</li>
-      </ul>
-
-      <p>
-        LocSRV does not sell personal information and does not share information
-        with advertising networks or data brokers.
-      </p>
-    </section>
-
-    <section>
-      <h2>4. Network communication and third parties</h2>
-
-      <p>
-        Some LocSRV features communicate with third-party systems. These
-        connections are made to provide a feature requested or enabled by you.
-      </p>
-
-      <h3>Package downloads</h3>
-
-      <p>
-        When you choose to install a package, LocSRV downloads it over HTTPS from
-        its listed publisher or distribution host. The receiving host may process
-        ordinary network information such as your IP address, request time, and
-        protocol headers. LocSRV verifies downloaded packages against the
-        configured SHA-256 checksum before installation.
-      </p>
-
-      <h3>Updates</h3>
-
-      <p>
-        If signed updates are configured and automatic update checks are enabled,
-        LocSRV may contact the configured HTTPS update service to obtain release
-        metadata and update files. You can disable automatic update checks in the
-        application settings.
-      </p>
-
-      <h3>Cloudflare Tunnel</h3>
-
-      <p>
-        If you explicitly start a public tunnel, LocSRV launches
-        <code>cloudflared</code> and sends traffic through Cloudflare. Website
-        requests made through the public tunnel are processed by Cloudflare and
-        forwarded to the local service you selected.
-      </p>
-
-      <p>
-        Cloudflare's handling of this traffic is governed by its
-        <a href="https://www.cloudflare.com/privacypolicy/">Privacy Policy</a>.
-      </p>
-
-      <h3>SSH connections</h3>
-
-      <p>
-        When you start an SSH session, Windows OpenSSH connects directly to the
-        server address you configured. The destination server and its operator
-        may process authentication data, commands, and session traffic according
-        to their own policies.
-      </p>
-
-      <h3>Microsoft services</h3>
-
-      <p>
-        Microsoft may process information when you obtain LocSRV through the
-        Microsoft Store, when Windows checks or installs application updates, or
-        when the installer obtains the Microsoft Edge WebView2 Runtime.
-      </p>
-
-      <p>
-        Microsoft may provide the publisher with Store reports such as aggregated
-        acquisition, usage, health, ratings, reviews, and application diagnostic
-        information. This processing is controlled by Microsoft and applicable
-        Windows privacy settings. See the
-        <a href="https://privacy.microsoft.com/privacystatement">
-          Microsoft Privacy Statement
-        </a>.
-      </p>
-
-      <h3>GitHub</h3>
-
-      <p>
-        The LocSRV website and support repository are hosted by GitHub. GitHub
-        may process normal website request information when you visit these
-        pages. See the
-        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">
-          GitHub General Privacy Statement
-        </a>.
-      </p>
-    </section>
-
-    <section>
-      <h2>5. Device access and system changes</h2>
-
-      <p>
-        LocSRV needs access to local files and processes to perform its purpose as
-        a development-environment manager. Depending on your actions, it may:
-      </p>
-
-      <ul>
-        <li>Create, read, update, and delete files within LocSRV directories.</li>
-        <li>Read or update project directories selected by you.</li>
-        <li>Start and stop local development processes.</li>
-        <li>Download and install development runtimes selected by you.</li>
-        <li>
-          Modify the Windows hosts file after confirmation and a Windows
-          elevation prompt.
-        </li>
-        <li>
-          Create and trust a local development certificate authority after your
-          confirmation.
-        </li>
-        <li>
-          Add or remove a current-user Windows startup entry when you change the
-          corresponding setting.
-        </li>
-        <li>
-          Expose a selected local service publicly only after explicit tunnel
-          confirmation.
-        </li>
-      </ul>
-
-      <p>
-        LocSRV does not install non-Microsoft device drivers. Development servers
-        are run as user-mode processes rather than installed as Windows NT
-        services.
-      </p>
-    </section>
-
-    <section>
-      <h2>6. Logs and diagnostics</h2>
-
-      <p>
-        Application and service logs are stored locally. LocSRV applies
-        sanitization intended to redact common password, token, secret, and
-        authorization fields from displayed or exported diagnostic information.
-      </p>
-
-      <p>
-        Diagnostic reports and log exports are not automatically uploaded.
-        They leave your device only if you manually share them.
-      </p>
-
-      <div class="notice">
-        Review diagnostic files before sharing them. Project paths, hostnames,
-        configuration details, and output generated by third-party tools may
-        still identify your environment.
-      </div>
-    </section>
-
-    <section>
-      <h2>7. Retention and deletion</h2>
-
-      <p>
-        LocSRV data remains on your device until you remove it using application
-        controls or delete the relevant files. Configured retention settings may
-        automatically remove older logs or backups.
-      </p>
-
-      <p>
-        Uninstalling the application may not delete projects, databases, backups,
-        credentials, certificates, or other user-created development data.
-        Review and remove these items manually when you no longer need them.
-      </p>
-
-      <p>
-        You can remove saved database credentials and tunnel tokens through
-        LocSRV. Other locally stored information can be removed using the
-        relevant delete action or by deleting the LocSRV data directory after
-        stopping all LocSRV-managed processes.
-      </p>
-    </section>
-
-    <section>
-      <h2>8. Support communications</h2>
-
-      <p>
-        If you voluntarily contact the publisher, submit an issue, write a Store
-        review, or send a diagnostic report, the submitted content and your
-        chosen contact information will be processed only to respond to the
-        request, investigate the issue, maintain security, and improve LocSRV.
-      </p>
-
-      <p>
-        GitHub Issues are public. Do not post passwords, private keys, access
-        tokens, private source code, database exports, or other confidential
-        information in an issue.
-      </p>
-    </section>
-
-    <section>
-      <h2>9. Children's privacy</h2>
-
-      <p>
-        LocSRV is a developer tool and is not directed specifically at children.
-        The publisher does not knowingly collect personal information from
-        children through the application.
-      </p>
-    </section>
-
-    <section>
-      <h2>10. Changes to this policy</h2>
-
-      <p>
-        This policy may be updated when LocSRV features or distribution methods
-        change. The effective date at the top of this page will be updated when
-        material changes are published.
-      </p>
-    </section>
-
-    <section>
-      <h2>11. Contact</h2>
-
-      <p>
-        For privacy or support questions, contact the publisher through:
-      </p>
-
-      <ul>
-        <li>
-          Website:
-          <a href="https://wafarifki.github.io/LocSRV/">
-            https://wafarifki.github.io/LocSRV/
-          </a>
-        </li>
-        <li>
-          Support:
-          <a href="https://github.com/wafarifki/LocSRV/issues">
-            https://github.com/wafarifki/LocSRV/issues
-          </a>
-        </li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <span>&copy; 2026 Wafa Rifqi. LocSRV Privacy Policy.</span>
-  </footer>
-</body>
+<!DOCTYPE html>
+<html lang="id" data-lang="id" data-theme="dark" data-page="privacy">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Kebijakan Privasi untuk aplikasi desktop LocSRV di Windows." data-i18n-content="meta.privacyDescription" />
+        <meta name="theme-color" content="#05080d" data-theme-color />
+        <link rel="canonical" href="https://wafarifki.github.io/LocSRV/privacy.html" />
+        <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.25/dist/lenis.css" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        
+        <!-- Favicons -->
+        <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+        <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="128x128" href="favicon/favicon-128x128.png" />
+
+        <!-- Apple Touch -->
+        <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-touch-icon-152x152.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+
+        <!-- Android / PWA -->
+        <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="favicon/android-chrome-512x512.png" />
+        <link rel="manifest" href="favicon/site.webmanifest" />
+
+        <!-- Microsoft Tiles -->
+        <meta name="msapplication-TileColor" content="#22262f" />
+        <meta name="msapplication-config" content="favicon/browserconfig.xml" />
+
+        <title>Kebijakan Privasi LocSRV</title>
+        <script>
+            (() => {
+                try {
+                    const savedTheme = localStorage.getItem("locsrv-theme");
+                    const savedLanguage = localStorage.getItem("locsrv-language");
+                    const theme =
+                        savedTheme === "light" || savedTheme === "dark"
+                            ? savedTheme
+                            : matchMedia("(prefers-color-scheme: light)").matches
+                            ? "light"
+                            : "dark";
+                    const language = savedLanguage === "en" ? "en" : "id";
+                    document.documentElement.dataset.theme = theme;
+                    document.documentElement.dataset.lang = language;
+                    document.documentElement.lang = language;
+                } catch (_) {}
+            })();
+        </script>
+    </head>
+    <body class="privacy-page">
+        <a class="skip-link" href="#main-content" data-i18n="a11y.skip">Lewati ke konten utama</a>
+
+        <div class="page-ambient" aria-hidden="true">
+            <span class="ambient-orb ambient-orb--mint"></span>
+            <span class="ambient-orb ambient-orb--blue"></span>
+            <span class="ambient-grid"></span>
+        </div>
+
+        <header class="site-header" data-site-header>
+            <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+            <div class="container header-inner">
+                <a class="brand" href="./index.html" aria-label="LocSRV, kembali ke beranda" data-i18n-aria-label="a11y.home">
+                    <svg class="brand-mark" viewBox="0 0 256 256" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="privacy-brand-gradient" x1="30" y1="24" x2="220" y2="230" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#78e8c7"></stop>
+                                <stop offset="1" stop-color="#4f7cff"></stop>
+                            </linearGradient>
+                        </defs>
+                        <rect x="12" y="12" width="232" height="232" rx="58" fill="#0b0d12"></rect>
+                        <path d="M72 67v122h78" fill="none" stroke="url(#privacy-brand-gradient)" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M123 104h60M123 145h45" fill="none" stroke="#f4f7fb" stroke-width="18" stroke-linecap="round"></path>
+                    </svg>
+                    <span>LocSRV</span>
+                </a>
+
+                <nav class="desktop-nav" aria-label="Navigasi utama" data-i18n-aria-label="a11y.mainNavigation">
+                    <a href="./index.html" data-i18n="nav.home">Beranda</a>
+                    <a href="./index.html#fitur" data-i18n="nav.features">Fitur</a>
+                    <a href="./index.html#keamanan" data-i18n="nav.security">Keamanan</a>
+                    <a class="is-active" href="#top" aria-current="page" data-i18n="nav.privacy">Privasi</a>
+                </nav>
+
+                <div class="header-actions">
+                    <div class="header-preferences">
+                        <div class="language-switch" role="group" aria-label="Pilih bahasa" data-i18n-aria-label="a11y.language">
+                            <button type="button" aria-pressed="true" data-language="id">ID</button>
+                            <button type="button" aria-pressed="false" data-language="en">EN</button>
+                        </div>
+                        <button class="theme-toggle" type="button" aria-label="Gunakan mode terang" data-theme-toggle data-i18n-aria-label="a11y.themeLight">
+                            <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"></path>
+                            </svg>
+                            <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20 15.2A8.2 8.2 0 0 1 8.8 4a8.3 8.3 0 1 0 11.2 11.2Z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <a class="button button--quiet header-download" href="/#download-locsrv">
+                        <span data-i18n="actions.downloadShort">Unduh</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"></path></svg>
+                    </a>
+                    <button class="menu-toggle" type="button" aria-label="Buka menu" aria-controls="mobile-menu" aria-expanded="false" data-menu-toggle>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+
+            <button class="menu-backdrop" type="button" tabindex="-1" aria-hidden="true" data-menu-backdrop></button>
+            <nav class="mobile-menu" id="mobile-menu" aria-label="Navigasi mobile" aria-hidden="true" inert data-mobile-menu>
+                <div class="mobile-menu__nav">
+                    <a href="./index.html">
+                        <span>01</span>
+                        <b data-i18n="nav.home">Beranda</b>
+                        <i>↗</i>
+                    </a>
+                    <a href="./index.html#fitur">
+                        <span>02</span>
+                        <b data-i18n="nav.features">Fitur</b>
+                        <i>↗</i>
+                    </a>
+                    <a href="./index.html#keamanan">
+                        <span>03</span>
+                        <b data-i18n="nav.security">Keamanan</b>
+                        <i>↗</i>
+                    </a>
+                    <a class="is-active" href="#top">
+                        <span>04</span>
+                        <b data-i18n="nav.privacy">Privasi</b>
+                        <i>↗</i>
+                    </a>
+                </div>
+                <div class="mobile-menu__preferences">
+                    <span data-i18n="preferences.title">Preferensi</span>
+                    <div class="mobile-preference-row">
+                        <span data-i18n="preferences.language">Bahasa</span>
+                        <div class="language-switch" role="group" aria-label="Pilih bahasa" data-i18n-aria-label="a11y.language">
+                            <button type="button" aria-pressed="true" data-language="id">ID</button>
+                            <button type="button" aria-pressed="false" data-language="en">EN</button>
+                        </div>
+                    </div>
+                    <button class="mobile-preference-row mobile-theme-toggle" type="button" data-theme-toggle>
+                        <span data-i18n="preferences.appearance">Tampilan</span>
+                        <strong>
+                            <span data-theme-label>Gelap</span>
+                            <i class="theme-dot"></i>
+                        </strong>
+                    </button>
+                </div>
+                <a class="button button--primary mobile-menu__cta" href="/#download-locsrv">
+                    <span data-i18n="actions.downloadWindows">Unduh untuk Windows</span>
+                </a>
+                <p class="mobile-menu__footer" data-i18n="mobile.localFirst">Native Windows · Local-first · Tanpa akun</p>
+            </nav>
+        </header>
+
+        <main id="main-content" class="legal-main">
+            <section class="legal-hero" id="top">
+                <div class="container">
+                    <div class="legal-hero-card hero-surface">
+                        <div class="legal-hero-card__top">
+                            <a class="legal-back" href="./index.html">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"></path></svg>
+                                <span data-i18n="privacy.back">Kembali ke beranda</span>
+                            </a>
+                            <span class="legal-document-id">
+                                <i></i>
+                                <span data-i18n="privacy.document">Dokumen privasi</span>
+                                / 2026.08
+                            </span>
+                        </div>
+
+                        <div class="legal-hero__grid">
+                            <div class="legal-hero__title">
+                                <span class="section-label" data-i18n="privacy.eyebrow">Transparansi &amp; kendali lokal</span>
+                                <h1>
+                                    <span class="hero-title-plain" data-i18n="privacy.titleTop">Kebijakan</span>
+                                    <span data-i18n="privacy.titleAccent">Privasi.</span>
+                                </h1>
+                            </div>
+                            <div class="legal-hero__aside">
+                                <p class="legal-intro" data-i18n="privacy.intro">
+                                    Dokumen ini menjelaskan bagaimana aplikasi desktop LocSRV untuk Windows menangani informasi saat kamu
+                                    menginstal dan menggunakannya.
+                                </p>
+                                <div class="privacy-signal">
+                                    <span class="privacy-signal__icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M12 3 4.5 6v5c0 4.6 3.2 8.9 7.5 10 4.3-1.1 7.5-5.4 7.5-10V6L12 3Zm-3 9 2 2 4-4"></path>
+                                        </svg>
+                                    </span>
+                                    <span>
+                                        <small data-i18n="privacy.signalLabel">Prinsip utama</small>
+                                        <strong data-i18n="privacy.signalTitle">Local-first sejak awal.</strong>
+                                        <em data-i18n="privacy.signalText">Tanpa akun wajib, iklan, atau telemetry penerbit.</em>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="legal-metadata">
+                            <span>
+                                <small data-i18n="privacy.publisher">Penerbit</small>
+                                <strong>Faceindo Developer Team</strong>
+                            </span>
+                            <span>
+                                <small data-i18n="privacy.effective">Berlaku sejak</small>
+                                <strong data-i18n="privacy.date">11 Agustus 2026</strong>
+                            </span>
+                            <span>
+                                <small data-i18n="privacy.application">Aplikasi</small>
+                                <strong>LocSRV for Windows</strong>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container legal-shell">
+                <aside class="legal-toc" aria-label="Daftar isi" data-i18n-aria-label="privacy.tocLabel">
+                    <span data-i18n="privacy.toc">Di halaman ini</span>
+                    <nav aria-label="Bagian kebijakan" data-i18n-aria-label="privacy.sectionNavigation">
+                        <a href="#ringkasan" data-i18n="privacy.tocSummary">Ringkasan</a>
+                        <a href="#data-lokal" data-i18n="privacy.tocLocal">Data lokal</a>
+                        <a href="#komunikasi" data-i18n="privacy.tocNetwork">Komunikasi jaringan</a>
+                        <a href="#akses" data-i18n="privacy.tocAccess">Akses perangkat</a>
+                        <a href="#retensi" data-i18n="privacy.tocRetention">Retensi &amp; penghapusan</a>
+                        <a href="#kontak" data-i18n="privacy.tocContact">Kontak</a>
+                    </nav>
+                </aside>
+
+                <article class="legal-content">
+                    <section class="legal-section legal-summary reveal" id="ringkasan">
+                        <div class="legal-section__number">00</div>
+                        <div>
+                            <h2>Ringkasan privasi</h2>
+                            <p>
+                                LocSRV tidak mewajibkan akun, tidak memuat iklan, serta tidak menyertakan analytics atau telemetry yang
+                                dioperasikan penerbit.
+                            </p>
+                            <p>
+                                File project, konfigurasi, credential, log, sertifikat lokal, isi database, dan aktivitas terminal tidak
+                                dikirim ke penerbit LocSRV atau server yang dikendalikan penerbit.
+                            </p>
+                            <p>
+                                Komunikasi jaringan hanya terjadi ketika diminta pengguna atau dibutuhkan fitur yang diaktifkan, seperti
+                                mengunduh package, terhubung melalui SSH, memeriksa pembaruan, atau menjalankan Cloudflare Tunnel.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="legal-section reveal">
+                        <div class="legal-section__number">01</div>
+                        <div>
+                            <h2>Ruang lingkup</h2>
+                            <p>
+                                Kebijakan ini berlaku untuk aplikasi desktop LocSRV di Windows serta website dan halaman dukungan resminya.
+                            </p>
+                            <p>
+                                Package dan layanan yang kamu pilih untuk dipasang atau dihubungkan memiliki kebijakan privasi dan
+                                ketentuannya sendiri.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="legal-section reveal" id="data-lokal">
+                        <div class="legal-section__number">02</div>
+                        <div>
+                            <h2>Informasi yang diproses LocSRV secara lokal</h2>
+                            <p>
+                                LocSRV memproses dan menyimpan informasi di perangkatmu untuk mengelola development environment lokal.
+                                Bergantung pada fitur yang digunakan, informasi ini dapat mencakup:
+                            </p>
+                            <ul>
+                                <li>
+                                    Preferensi aplikasi, termasuk bahasa, tema, lokasi workspace, terminal, editor, startup, pola domain,
+                                    pembaruan, dan retensi log.
+                                </li>
+                                <li>
+                                    Nama dan lokasi project, domain development lokal, konfigurasi web server, runtime, port, serta
+                                    development profile.
+                                </li>
+                                <li>
+                                    Environment variable pada development profile beserta nilainya; semuanya tetap berada di file profile
+                                    lokal.
+                                </li>
+                                <li>
+                                    Metadata package, progres download, integrity hash, runtime yang terpasang, dan konfigurasi development
+                                    tool.
+                                </li>
+                                <li>
+                                    Output service lokal, log aplikasi, laporan diagnostik yang disanitasi, backup database, serta file dari
+                                    fitur yang kamu gunakan.
+                                </li>
+                                <li>
+                                    Nama profile SSH, hostname atau alamat IP, port, username, metode autentikasi, dan lokasi private key
+                                    lokal opsional.
+                                </li>
+                                <li>
+                                    Username dan credential database lokal, token Cloudflare Tunnel yang sengaja disimpan, serta sertifikat
+                                    HTTPS lokal.
+                                </li>
+                            </ul>
+                            <h3>Credential dan private key</h3>
+                            <ul>
+                                <li>Password database dan token Cloudflare Tunnel disimpan melalui Windows Credential Manager.</li>
+                                <li>Password SSH dimasukkan secara interaktif melalui Windows OpenSSH dan tidak disimpan LocSRV.</li>
+                                <li>LocSRV hanya menyimpan lokasi private key SSH yang dipilih; isinya tidak disalin atau diunggah.</li>
+                                <li>
+                                    Private key sertifikat yang dibuat secara lokal tetap berada di perangkat dan tidak dikirim ke penerbit.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="legal-section reveal">
+                        <div class="legal-section__number">03</div>
+                        <div>
+                            <h2>Informasi yang tidak dikumpulkan LocSRV</h2>
+                            <p>LocSRV tidak dengan sengaja mengirim hal berikut kepada penerbit:</p>
+                            <ul>
+                                <li>Source code project atau konten websitemu.</li>
+                                <li>Isi database atau backup database.</li>
+                                <li>Perintah terminal atau isi sesi SSH.</li>
+                                <li>Password, access token, atau private key.</li>
+                                <li>Sertifikat lokal atau private key sertifikat.</li>
+                                <li>Kontak, foto, kamera, mikrofon, atau lokasi presisi.</li>
+                                <li>Advertising identifier atau data pelacakan lintas aplikasi.</li>
+                            </ul>
+                            <p>LocSRV tidak menjual informasi pribadi dan tidak membagikannya kepada jaringan iklan atau data broker.</p>
+                        </div>
+                    </section>
+
+                    <section class="legal-section reveal" id="komunikasi">
+                        <div class="legal-section__number">04</div>
+                        <div>
+                            <h2>Komunikasi jaringan dan pihak ketiga</h2>
+                            <p>
+                                Beberapa fitur LocSRV berkomunikasi dengan sistem pihak ketiga untuk menyediakan fitur yang kamu minta atau
+                                aktifkan.
+                            </p>
+                            <h3>Download package</h3>
+                            <p>
+                                Saat kamu memasang package, LocSRV mengunduhnya melalui HTTPS dari penerbit atau distribution host yang
+                                tercantum. Host tersebut dapat memproses informasi jaringan biasa seperti alamat IP, waktu request, dan
+                                protocol header. LocSRV memverifikasi package dengan checksum SHA-256 sebelum instalasi.
+                            </p>
+                            <h3>Pembaruan</h3>
+                            <p>
+                                Jika signed update dikonfigurasi dan pemeriksaan otomatis aktif, LocSRV dapat menghubungi update service
+                                melalui HTTPS. Pemeriksaan otomatis dapat dinonaktifkan dari pengaturan.
+                            </p>
+                            <h3>Cloudflare Tunnel</h3>
+                            <p>
+                                Jika kamu menjalankan public tunnel, LocSRV membuka
+                                <code>cloudflared</code>
+                                dan mengirim traffic melalui Cloudflare. Penanganannya mengikuti
+                                <a href="https://www.cloudflare.com/privacypolicy/">Kebijakan Privasi Cloudflare</a>
+                                .
+                            </p>
+                            <h3>Koneksi SSH</h3>
+                            <p>
+                                Saat sesi SSH dimulai, Windows OpenSSH terhubung langsung ke server tujuan. Server dan operatornya dapat
+                                memproses data autentikasi, perintah, dan traffic sesuai kebijakan mereka.
+                            </p>
+                            <h3>Layanan Microsoft dan GitHub</h3>
+                            <p>
+                                Microsoft dapat memproses informasi saat kamu memperoleh LocSRV dari Microsoft Store atau saat Windows
+                                memasang pembaruan. Website dan repository dukungan LocSRV dihosting GitHub; masing-masing layanan tunduk
+                                pada kebijakan privasinya sendiri.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="legal-section reveal" id="akses">
+                        <div class="legal-section__number">05</div>
+                        <div>
+                            <h2>Akses perangkat dan perubahan sistem</h2>
+                            <p>
+                                LocSRV membutuhkan akses ke file dan proses lokal untuk berfungsi sebagai pengelola development environment.
+                                Bergantung pada tindakanmu, LocSRV dapat:
+                            </p>
+                            <ul>
+                                <li>Membuat, membaca, memperbarui, dan menghapus file di direktori LocSRV.</li>
+                                <li>Membaca atau memperbarui direktori project yang kamu pilih.</li>
+                                <li>Menjalankan dan menghentikan proses development lokal.</li>
+                                <li>Mengunduh dan memasang runtime yang kamu pilih.</li>
+                                <li>Mengubah Windows hosts file setelah konfirmasi dan elevation prompt.</li>
+                                <li>Membuat serta mempercayai local development CA setelah konfirmasi.</li>
+                                <li>Menambah atau menghapus startup entry pengguna saat pengaturannya diubah.</li>
+                                <li>Membuka service lokal ke publik hanya setelah konfirmasi tunnel.</li>
+                            </ul>
+                            <p>
+                                LocSRV tidak memasang device driver non-Microsoft. Development server berjalan sebagai user-mode process,
+                                bukan Windows NT service.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="legal-section reveal">
+                        <div class="legal-section__number">06</div>
+                        <div>
+                            <h2>Log dan diagnostik</h2>
+                            <p>
+                                Log aplikasi dan service disimpan secara lokal. LocSRV melakukan sanitasi untuk menyamarkan field umum
+                                seperti password, token, secret, dan authorization dari informasi diagnostik.
+                            </p>
+                            <p>
+                                Laporan diagnostik dan export log tidak diunggah otomatis. File hanya meninggalkan perangkat jika kamu
+                                membagikannya secara manual.
+                            </p>
+                            <div class="legal-notice">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 9v4m0 4h.01M10.3 4.4 3.2 17a2 2 0 0 0 1.7 3h14.2a2 2 0 0 0 1.7-3L13.7 4.4a2 2 0 0 0-3.4 0Z"></path>
+                                </svg>
+                                <span>
+                                    Tinjau file diagnostik sebelum dibagikan. Lokasi project, hostname, detail konfigurasi, dan output tool
+                                    pihak ketiga masih dapat mengidentifikasi environment-mu.
+                                </span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="legal-section reveal" id="retensi">
+                        <div class="legal-section__number">07</div>
+                        <div>
+                            <h2>Retensi dan penghapusan</h2>
+                            <p>
+                                Data LocSRV tetap berada di perangkat hingga kamu menghapusnya melalui kontrol aplikasi atau menghapus file
+                                terkait. Pengaturan retensi dapat otomatis menghapus log atau backup lama.
+                            </p>
+                            <p>
+                                Menghapus instalasi aplikasi mungkin tidak menghapus project, database, backup, credential, sertifikat, atau
+                                data development buatan pengguna. Tinjau dan hapus item tersebut secara manual saat tidak lagi dibutuhkan.
+                            </p>
+                            <p>
+                                Credential database dan token tunnel dapat dihapus melalui LocSRV. Informasi lokal lainnya dapat dihapus
+                                melalui tindakan yang relevan atau dengan menghapus data directory setelah semua proses LocSRV dihentikan.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="legal-section reveal">
+                        <div class="legal-section__number">08</div>
+                        <div>
+                            <h2>Komunikasi dukungan</h2>
+                            <p>
+                                Jika kamu menghubungi penerbit, mengirim issue, menulis Store review, atau membagikan laporan diagnostik,
+                                konten tersebut diproses hanya untuk merespons, menyelidiki masalah, menjaga keamanan, dan memperbaiki
+                                LocSRV.
+                            </p>
+                            <p>
+                                GitHub Issues bersifat publik. Jangan kirim password, private key, access token, source code privat, export
+                                database, atau informasi rahasia lainnya.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="legal-section reveal">
+                        <div class="legal-section__number">09</div>
+                        <div>
+                            <h2>Privasi anak</h2>
+                            <p>
+                                LocSRV adalah developer tool dan tidak ditujukan secara khusus untuk anak-anak. Penerbit tidak dengan
+                                sengaja mengumpulkan informasi pribadi anak melalui aplikasi.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="legal-section reveal">
+                        <div class="legal-section__number">10</div>
+                        <div>
+                            <h2>Perubahan kebijakan</h2>
+                            <p>
+                                Kebijakan ini dapat diperbarui ketika fitur atau metode distribusi LocSRV berubah. Tanggal berlaku di bagian
+                                atas halaman akan diperbarui jika ada perubahan material.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="legal-section reveal" id="kontak">
+                        <div class="legal-section__number">11</div>
+                        <div>
+                            <h2>Kontak</h2>
+                            <p>Untuk pertanyaan privasi atau dukungan, hubungi penerbit melalui:</p>
+                            <div class="legal-contact-grid">
+                                <a href="https://wafarifki.github.io/LocSRV/">
+                                    <span data-i18n="privacy.website">Website</span>
+                                    <strong>wafarifki.github.io/LocSRV</strong>
+                                </a>
+                                <a href="https://github.com/wafarifki/LocSRV/issues">
+                                    <span data-i18n="privacy.support">Dukungan</span>
+                                    <strong>GitHub Issues</strong>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </main>
+
+        <a class="back-to-top" href="#top" aria-label="Kembali ke atas" data-back-to-top data-i18n-aria-label="a11y.backToTop">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-5 5m5-5 5 5"></path></svg>
+        </a>
+
+        <footer class="site-footer">
+            <div class="container footer-grid">
+                <div>
+                    <a class="brand" href="./index.html">
+                        <svg class="brand-mark" viewBox="0 0 256 256" aria-hidden="true">
+                            <rect x="12" y="12" width="232" height="232" rx="58" fill="#0b0d12"></rect>
+                            <path d="M72 67v122h78" fill="none" stroke="#78e8c7" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M123 104h60M123 145h45" fill="none" stroke="#f4f7fb" stroke-width="18" stroke-linecap="round"></path>
+                        </svg>
+                        <span>LocSRV</span>
+                    </a>
+                    <p data-i18n="footer.tagline">Lingkungan pengembangan web lokal yang terstruktur untuk Windows.</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <strong data-i18n="footer.product">Produk</strong>
+                        <a href="./index.html#fitur" data-i18n="nav.features">Fitur</a>
+                        <a href="./index.html#stack">Stack</a>
+                        <a href="https://github.com/wafarifki/LocSRV/releases" data-i18n="actions.downloadShort">Unduh</a>
+                    </div>
+                    <div>
+                        <strong data-i18n="footer.support">Dukungan</strong>
+                        <a href="./index.html#faq">FAQ</a>
+                        <a href="https://github.com/wafarifki/LocSRV/issues">GitHub Issues</a>
+                        <a href="#top" data-i18n="nav.privacy">Privasi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container footer-bottom">
+                <span>© 2026 Faceindo Developer Team. LocSRV.</span>
+                <span data-i18n="footer.focus">Dibuat untuk developer yang ingin tetap fokus.</span>
+            </div>
+        </footer>
+
+        <script src="https://unpkg.com/lenis@1.3.25/dist/lenis.min.js" defer></script>
+        <script src="assets/js/script.js" defer></script>
+    </body>
 </html>
