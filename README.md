@@ -1,6 +1,9 @@
 # LocSRV
 LocSRV is the perfect solution for web developers looking for a stable, comprehensive, and user-friendly local platform. With its advanced features, LocSRV ensures you have everything you need to develop web applications professionally.
 
+# Download? Visit This
+https://wafarifki.github.io/LocSRV/
+
 # Let's connect with me!
 <p>
     <a href="https://wafarifki.github.io" target="_blank"><img src="https://img.shields.io/badge/Website-https://wafarifki.github.io-blue?" /></a>
