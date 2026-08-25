@@ -292,6 +292,36 @@
       "sourceVerifiedAt": "2026-08-01T04:20:00Z"
     },
     {
+      "id": "php",
+      "name": "PHP (Non Thread Safe)",
+      "category": "runtime",
+      "version": "8.1.11",
+      "architecture": "x86_64",
+      "downloadUrl": "https://downloads.php.net/~windows/releases/archives/php-8.1.11-nts-Win32-vs16-x64.zip",
+      "sha256": "a3904d05700b56186ab9c7f5e472bad9a40ad60cd8ef8fd68be6d55a4a756296",
+      "archiveFormat": "zip",
+      "stripComponents": 0,
+      "executables": ["php.exe", "php-cgi.exe"],
+      "license": "PHP License v3.01",
+      "homepage": "https://www.php.net/downloads.php?os=windows",
+      "sourceVerifiedAt": "2026-08-25T20:20:00Z"
+    },
+    {
+      "id": "php",
+      "name": "PHP (Non Thread Safe)",
+      "category": "runtime",
+      "version": "8.0.5",
+      "architecture": "x86_64",
+      "downloadUrl": "https://downloads.php.net/~windows/releases/archives/php-8.0.5-nts-Win32-vs16-x64.zip",
+      "sha256": "8e2ce61823c944c368ef589cfa8b3902537d26d7d44683e5b1132dad3573a82d",
+      "archiveFormat": "zip",
+      "stripComponents": 0,
+      "executables": ["php.exe", "php-cgi.exe"],
+      "license": "PHP License v3.01",
+      "homepage": "https://www.php.net/downloads.php?os=windows",
+      "sourceVerifiedAt": "2026-08-25T20:20:00Z"
+    },
+    {
       "id": "phpmyadmin",
       "name": "phpMyAdmin",
       "category": "web-application",
