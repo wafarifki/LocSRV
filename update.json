@@ -1,11 +1,11 @@
 {
-  "version": "0.1.3",
-  "notes": "LocSRV 0.1.3",
-  "pub_date": "2026-09-25T00:00:00Z",
+  "version": "0.1.4",
+  "notes": "LocSRV 0.1.4 — fully online package catalog, thorough project cleanup, SSH groups & colors, PHP extension fixes.",
+  "pub_date": "2026-10-28T08:11:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUNGNxc01CQ0k1cmwvcWdMd3VuVEFXdGxHbTRJV1FDcG5RV05sSGFGSUY4NllkNmdaaHZWWmo3cnk3TFExNFRFeUE2YmQvQnBmMVpEbzlCdFVuSGVxRkFWYklDY3VIMVFZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkwMzE5NzkxCWZpbGU6TG9jU1JWXzAuMS4zX3g2NC1zZXR1cC5leGUKbWVGWGJsNWl3Y3lnNGFSQ2FBcjcyQ1VEaEtUbldaS1R2aFFVbWZycDNVZ045Q3E0S3RMaEx1S09IRFppNzRmQU9PdE5VbXNlR3RZVCtVQ3UvT203QXc9PQo=",
-      "url": "https://github.com/wafarifki/LocSRV/releases/download/v0.1.3/LocSRV_0.1.3_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUNGNxc01CQ0k1cmxkRnRybG5teHRCaHNnNXIwSHNyc2U4YUZXcGlENVl4eWZNR0VuRzFnT3VtaUZ0V21TNDgzT1dSL0U1aUQxZXNNbnpnWFh0Z2RLMGVDbDRWSjl6eWdvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMTc1MDg1CWZpbGU6TG9jU1JWXzAuMS40X3g2NC1zZXR1cC5leGUKVjZCUnZRcE54OG5pVExwQXJOZG9xNkVtbHRWRVVmbDBCQWtQcUppb3V2VW5HaHl3dHQxcUh2N21GQUhaSHVtd0NmTVc3YWgwdW9aQTZEanNaeTZVQmc9PQo=",
+      "url": "https://github.com/wafarifki/LocSRV/releases/download/v0.1.4/LocSRV_0.1.4_x64-setup.exe"
     }
   }
 }
