@@ -15,7 +15,7 @@
       "executables": ["bin/httpd.exe", "bin/ApacheMonitor.exe"],
       "license": "Apache License 2.0; binary dependencies retain their respective licenses.",
       "homepage": "https://www.apachelounge.com/download/",
-      "sourceVerifiedAt": "2026-11-02T04:20:00Z"
+      "sourceVerifiedAt": "2026-11-01T04:20:00Z"
     },
     {
       "id": "apache",
